@@ -1,0 +1,15 @@
+.search-section{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.search-section img{
+    height: 40px;
+}
+
+.separator img{
+    height: 40px;
+    margin: 50px 0;
+}

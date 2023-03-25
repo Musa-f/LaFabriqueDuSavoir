@@ -1,0 +1,10 @@
+form.registration{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form.registration input, form.registration div{
+    margin-bottom: 20px;
+}

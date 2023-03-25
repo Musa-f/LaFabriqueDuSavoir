@@ -1,0 +1,137 @@
+:root {
+    --num-columns: 10;
+    --column-gap: 10px;
+}
+
+$vert-olive: #556b2f;
+$marron-rouille: #8b2500;
+$jaune-moutarde: #d4af37;
+$vert-sapin: #2e524f;
+$gris-mauve: #6b5b95;
+
+.container{
+    width: 70%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(var(--num-columns), 1fr);
+    justify-content: center;
+    grid-row-gap: 40px; /* define a space between each row */
+    align-items: end;
+}
+
+.row {
+    grid-column: 1 / -1; /* make the row span all columns */
+    display: grid; /* create new grid for the books inside the row */
+    grid-template-columns: repeat(var(--num-columns), 1fr); /* each book take 1 column */
+    justify-content: center;
+    grid-column-gap: var(--column-gap); /* define a space between each book */
+}
+  
+
+.shelf {
+    width: 110%;
+    justify-self: center;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #6e4b27;
+    grid-column: 1 / -1; /* make the shelf span all columns */
+    position: relative;
+    top: -60px;
+}
+
+.book{
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90px;
+    height: 250px;
+    border-radius: 80px 80px 80px 80px/ 20px 20px 20px 20px;
+    box-shadow: inset 10px 10px 46px 0px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.book:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 0px 20px black !important;
+    z-index: 10;
+}
+
+h4{
+    font-size: 11px;
+}
+h3{
+    font-size: 14px;
+}
+
+
+/*-------------------------STYLES BOOKS-------------------------*/
+
+.style1{
+    background-color: $marron-rouille;
+    h3{
+        border-bottom: double 3px $jaune-moutarde;
+        border-top: double 3px $jaune-moutarde;
+        padding: 5px 0;
+        margin-top: 25px;
+    }
+    h4{
+        border-bottom: double 3px $jaune-moutarde;
+        border-top: double 3px $jaune-moutarde;
+        margin-bottom: 20px;
+    }
+    h3, h4{
+        color: $jaune-moutarde;
+    }
+}
+
+.style2{
+    background-color: $vert-sapin;
+    h3{
+        border-bottom: double 3px $jaune-moutarde;
+        border-top: double 3px $jaune-moutarde;
+        padding: 5px 0;
+        margin-top: 25px;
+    }
+    h4{
+        border-bottom: double 3px $jaune-moutarde;
+        border-top: double 3px $jaune-moutarde;
+        margin-bottom: 20px;
+    }
+    h3, h4{
+        color: $jaune-moutarde;
+    }
+}
+
+.style3{
+    background-color: $gris-mauve;
+    h3{
+        background-color: #7e6fa3;
+        border-radius: 50%;
+        padding: 5px 0;
+        margin-top: 25px;
+    }
+    h4{
+        border-bottom: double 3px $jaune-moutarde;
+        border-top: double 3px $jaune-moutarde;
+        margin-bottom: 20px;
+    }
+    h3, h4{
+        color: $jaune-moutarde;
+    }
+}
+
+
+/*-------------------------ROTATION BOOKS-------------------------*/
+
+.rotation-r{
+    transform: rotate(8deg);
+}
+
+.rotation-l{
+    transform: rotate(-8deg);
+}
+
+.read{
+    filter: brightness(50%);
+}

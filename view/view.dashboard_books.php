@@ -1,0 +1,207 @@
+<h1 class="dashboard-title">Gestion des livres</h1>
+
+<div class="menu">
+    <div><a href="#livres" class="menu-btn">Livres</a></div>
+    <div><a href="#auteurs" class="menu-btn">Auteurs</a></div>
+    <div><a href="#genres" class="menu-btn">Genres</a></div>
+</div>
+
+
+<!-- ------------------------------ LIVRES ------------------------------ -->
+<div id="livres" class="content-block active">
+    <div class="filters">
+        <div class="date">
+            <select name="" id="" class="initialize">
+                <option value="">Croissant</option>
+                <option value="">Décroissant</option>
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="initialize style-input" placeholder="Rechercher par nom d'utilisateur...">
+            <button class="initialize">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing.</td>
+                    <td>Flaubert</td>
+                    <td>
+                        <button class="initialize"><i class="bi bi-pencil-square"></i></button>
+                    </td>
+                    <td>
+                        <button class="initialize style-btn">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div><button class="initialize style-btn" id="btn-modal-add-livres">Ajouter</button></div>
+</div>
+
+<!-- Modal ADD -->
+<div class="modal-add-livres">
+    <form action="" method="post">
+        <div>
+            <label for="">Titre</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Auteur</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Date de publication</label>
+            <input type="date">
+        </div>
+        <div>
+            <label for="">Image</label>
+            <input type="file" class="custom-file-input custom-file">
+        </div>
+        <div>
+            <label for="">URL du pdf</label>
+            <input type="file" class="custom-file-input custom-file">
+        </div>
+        <div>
+            <label for="">Résumé</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Annuler" class="initialize style-btn">
+            <input type="submit" value="Valider" class="initialize style-btn">
+        </div>
+    </form>
+</div>
+
+<!-- Modal EDIT -->
+<!-- <div class="modal-edit-livres">
+    <form action="" method="post">
+        <div>
+            <label for="">Titre</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Auteur</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="">Date de publication</label>
+            <input type="date">
+        </div>
+        <div>
+            <label for="">Image</label>
+            <input type="file" class="custom-file-input custom-file">
+        </div>
+        <div>
+            <label for="">URL du pdf</label>
+            <input type="file" class="custom-file-input custom-file">
+        </div>
+        <div>
+            <label for="">Résumé</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Annuler" class="initialize style-btn">
+            <input type="submit" value="Valider" class="initialize style-btn">
+        </div>
+    </form>
+</div> -->
+
+
+<!-- ------------------------------ AUTEURS ------------------------------ -->
+<div id="auteurs" class="content-block">
+    <div class="filters">
+        <div class="date">
+            <select name="" id="" class="initialize">
+                <option value="">Croissant</option>
+                <option value="">Décroissant</option>
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="initialize style-input" placeholder="Rechercher par nom d'utilisateur...">
+            <button class="initialize">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="content">
+        <table class="actions">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zola</td>
+                    <td>
+                        <button class="initialize"><i class="bi bi-pencil-square"></i></button>
+                    </td>
+                    <td>
+                        <button class="initialize style-btn">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <button class="initialize style-btn">Ajouter</button>
+</div>
+
+
+<!-- ------------------------------ GENRES ------------------------------ -->
+
+<div id="genres" class="content-block">
+    <div class="filters">
+        <div class="date">
+            <select name="" id="" class="initialize">
+                <option value="">Croissant</option>
+                <option value="">Décroissant</option>
+            </select>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="initialize style-input" placeholder="Rechercher par nom d'utilisateur...">
+            <button class="initialize">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="content">
+        <table class="actions">
+            <thead>
+                <tr>
+                    <th>Genre</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zola</td>
+                    <td>
+                        <button class="initialize"><i class="bi bi-pencil-square"></i></button>
+                    </td>
+                    <td>
+                        <button class="initialize style-btn">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <button class="initialize style-btn">Ajouter</button>
+</div>

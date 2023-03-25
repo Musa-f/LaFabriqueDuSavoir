@@ -1,0 +1,127 @@
+body {
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.info-book, .comment-space {
+  margin-bottom: 5%;
+}
+
+.info-book {
+  width: 70%;
+}
+
+.bloc1 {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 3%;
+}
+
+.bloc1 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.bloc1 div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bloc1 div:first-child button {
+  margin: 2% 0;
+  width: 100%;
+}
+.bloc1 div:first-child a {
+  width: 100%;
+}
+
+.bloc1 div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 10%;
+  margin: 4% 0;
+}
+
+.bloc2 .resume {
+  text-align: left;
+}
+.bloc2 .resume h3 {
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
+}
+.bloc2 div {
+  text-align: right;
+}
+
+.comment-space {
+  width: 105% !important;
+  background-color: #2c3638;
+  padding: 1% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.comment-space .bulle-bloc {
+  position: relative;
+}
+.comment-space .bulle-bloc .bulle {
+  position: absolute;
+  top: -50px;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid #2c3638;
+}
+.comment-space .comment {
+  width: 80%;
+  border-left: 2px solid #d5d1c3;
+  padding: 10px;
+  margin: 2%;
+  color: #d5d1c3;
+}
+.comment-space .comment .details-comment {
+  color: #707779;
+  font-size: 0.7em;
+  margin-bottom: 10px;
+}
+
+.post-comment {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post-comment h2 {
+  margin-bottom: 2%;
+}
+.post-comment form div {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+.post-comment form div .note {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+.post-comment form div .note i {
+  font-size: 1.2em;
+  margin: 0 1%;
+}
+.post-comment form div label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.post-comment form div input[type=text], .post-comment form div textarea {
+  background-color: white;
+  border: 1px solid #2c3638;
+  padding: 5px 10px;
+}/*# sourceMappingURL=bookdetails.css.map */
