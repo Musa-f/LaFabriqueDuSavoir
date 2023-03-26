@@ -67,6 +67,10 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.comment-space .empty-space {
+  margin: 5% 0;
+  color: #d5d1c3;
+}
 .comment-space .bulle-bloc {
   position: relative;
 }
@@ -113,7 +117,7 @@ body {
   justify-items: center;
 }
 .post-comment form div .note i {
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin: 0 1%;
 }
 .post-comment form div label {

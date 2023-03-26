@@ -26,3 +26,12 @@ if(isset($_POST['readBook_pages']) AND isset($_POST['readBook_idUser']) AND isse
     $nbPage = $_POST['readBook_pages'];
     update_page($bdd, $idBook, $idUser, $nbPage);
 }
+
+if(isset($_POST['idBook']) AND isset($_POST['idUser']) AND isset($_POST['rating']) AND isset($_POST['title']) AND isset($_POST['message'])){
+    $idBook = $_POST['idBook'];
+    $idUser = $_POST['idUser'];
+    $rating = $_POST['rating'];
+    $title = $_POST['title'];
+    $content = $_POST['message'];
+    insert_review_book($bdd, $idUser, $idBook, $rating, $title, $content);
+}

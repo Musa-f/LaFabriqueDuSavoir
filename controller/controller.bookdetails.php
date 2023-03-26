@@ -22,3 +22,9 @@ if(isset($_SESSION['user'])){
     $exist_borrowed_book = select_exist_borrowed_book($bdd, $idBook, $idUser);
 };
 
+$exist_reviews = select_exist_review($bdd, $id);
+$reviews = select_reviews($bdd, $id);
+
+$moy_review = select_moy_review_book($bdd, $id);
+$moy_review = round($moy_review['moy'], 0);
+echo $moy_review;

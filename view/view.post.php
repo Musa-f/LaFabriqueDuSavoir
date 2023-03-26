@@ -4,8 +4,12 @@
 
         <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1): ?>
             <div class="editions">
-                <button class="initialize"><i class="bi bi-pencil-square"></i></button>
-                <button class="initialize"><i class="bi bi-x-square"></i></button>
+                <a href="../controller/controller.pages.php?page=view.edit&id=<?=$post['id_post']?>">
+                    <button class="initialize"><i class="bi bi-pencil-square"></i></button>
+                </a>
+                <a href="">
+                    <button class="initialize"><i class="bi bi-x-square"></i></button>
+                </a>
             </div>
         <?php endif?>
 
@@ -61,16 +65,6 @@
 <div class="post-comment">
     <h2>Poster un commentaire</h2>
     <form action="" method="post">
-        <div>
-            <label for="">Note</label>
-            <div class="note">
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-            </div>
-        </div>
         <div>
             <label for="">Titre</label>
             <input type="text">

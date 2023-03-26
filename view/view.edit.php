@@ -1,6 +1,10 @@
 <div class="title">
     <img src="/la_fabrique_du_savoir/assets/img/l-separator.svg" alt="">
-    <h2>Modifier l'article</h2>
+    <?php if($id == 0):?>
+        <h2>Nouveau article</h2>
+    <?php else:?>
+        <h2>Modifier l'article</h2>
+    <?php endif?>
 </div>
 
 <form action="" method="post" class="edit">

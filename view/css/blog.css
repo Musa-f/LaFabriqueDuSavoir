@@ -81,12 +81,15 @@
 
 .write{
     align-self: end;
+}
+
+.write button{
     background-color: #b17f4a;
     color: #2c3638;
     margin: 10px 0;
 }
 
-.write:hover{
-    background-color: #cca378;
+.write button:hover{
+    background-color: #bd8b55;
     color: #2c3638;
 }

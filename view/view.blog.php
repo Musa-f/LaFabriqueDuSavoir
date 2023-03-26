@@ -1,7 +1,7 @@
 <div class="articles">
 
     <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1): ?>
-        <button class="initialize style-btn write">Ecrire un article</button>
+        <a href="../controller/controller.pages.php?page=view.edit&id=0" class="write"><button class="initialize style-btn">Ecrire un article</button></a>
     <?php endif?>
     
     <?php

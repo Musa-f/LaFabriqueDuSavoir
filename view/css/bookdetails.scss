@@ -72,6 +72,11 @@ body{
     flex-direction: column;
     justify-content: center;
 
+    .empty-space{
+        margin: 5% 0;
+        color: #d5d1c3;
+    }
+
     .bulle-bloc{
         position: relative;
         .bulle{
@@ -120,7 +125,7 @@ body{
             flex-direction: row;
             justify-items: center;
             i{
-                font-size: 1.2em;
+                font-size: 1.4em;
                 margin: 0 1%;
             }
         }

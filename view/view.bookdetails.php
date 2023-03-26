@@ -17,6 +17,7 @@
         <div>
             <h1><?=$book['title_book']?></h1>
             <h2>Auteur:
+                <br>
                 <?php foreach($author as $author){
                     echo $author['firstname']." ";
                     echo $author['lastname'];
@@ -26,6 +27,11 @@
             </h2>
             <h3><?="Date de publication: ".$book['date']?></h3>
             <div class="note">
+                <i class="bi <?= ($moy_review>=1) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($moy_review>=2) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($moy_review>=3) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($moy_review>=4) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($moy_review>=5) ? "bi-star-fill" : "bi-star"; ?>"></i>
             </div>
             <p class="genres">
                 <p>
@@ -67,72 +73,62 @@
 
 <div class="comment-space">
     <div class="bulle-bloc"><div class="bulle"></div></div>
-    <div class="comment">
-        <div class="details-comment">
-            <h3>@username</h3>
-            <p>01/01/2000</p>
+    <?php if($exist_reviews):?>
+        <?php foreach($reviews as $review):?>
+        <div class="comment">
+            <div class="details-comment">
+                <h3>@<?=$review["name"]?></h3>
+                <p><?=$review["date"]?></p>
+            </div>
+            <div>
+                <i class="bi <?= ($review["rating"]>=1) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($review["rating"]>=2) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($review["rating"]>=3) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($review["rating"]>=4) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <i class="bi <?= ($review["rating"]>=5) ? "bi-star-fill" : "bi-star"; ?>"></i>
+            </div>
+            <div class="note"></div>
+            <h2><?=$review["title"]?></h2>
+            <div class="content"><?=$review["comment"]?></div>
         </div>
-        <div class="note"></div>
-        <h2>Titre</h2>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum fuga ullam ipsam corrupti magnam dolor voluptatibus modi accusantium eos?
-        </div>
-    </div>
-    <!-- Bloc de commentaires à enlever plus tard -->
-    <div class="comment">
-        <div class="details-comment">
-            <h3>@username</h3>
-            <p>01/01/2000</p>
-        </div>
-        <div class="note"></div>
-        <h2>Titre</h2>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum fuga ullam ipsam corrupti magnam dolor voluptatibus modi accusantium eos?
-        </div>
-    </div>
-    <div class="comment">
-        <div class="details-comment">
-            <h3>@username</h3>
-            <p>01/01/2000</p>
-        </div>
-        <div class="note"></div>
-        <h2>Titre</h2>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum fuga ullam ipsam corrupti magnam dolor voluptatibus modi accusantium eos?
-        </div>
-    </div>
-    <!-- FIN DES BLOCS -->
+        <?php endforeach?>
+    <?php else:?>
+     <p class="empty-space">Pas de critique pour ce livre. Soyez le premier !</p>
+    <?php endif?>
 </div>
 
 
 <div class="post-comment">
     <h2>Poster un commentaire</h2>
-    <form action="" method="post">
+    <p id="responsemessage"></p>
+    <form>
         <div>
-            <label for="">Note</label>
+            <label>Note</label>
             <div class="note">
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
-                <i class="bi bi-star"></i>
+                <i class="bi bi-star rating" onclick="rating(this)" id="1"></i>
+                <i class="bi bi-star rating" onclick="rating(this)" id="2"></i>
+                <i class="bi bi-star rating" onclick="rating(this)" id="3"></i>
+                <i class="bi bi-star rating" onclick="rating(this)" id="4"></i>
+                <i class="bi bi-star rating" onclick="rating(this)" id="5"></i>
             </div>
         </div>
         <div>
-            <label for="">Titre</label>
-            <input type="text">
+            <label>Titre</label>
+            <input type="text" id="titleinput">
         </div>
         <div>
-            <label for="">Commentaire</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <label>Commentaire</label>
+            <textarea cols="30" rows="10" id="messageinput"></textarea>
         </div>
         <div>
-            <input type="submit" name="submit" value="Envoyer" class="initialize style-btn">
+            <input id="submit-btn" value="Envoyer" class="initialize style-btn">
         </div>
     </form>
 
 </div>
 
 <?php
-    $script = "<script src='/la_fabrique_du_savoir/view/js/addbook.js'></script>";
+    $script =   "<script src='/la_fabrique_du_savoir/view/js/ratings.js'></script>
+                <script src='/la_fabrique_du_savoir/view/js/addbook.js'></script>
+                ";
 ?>

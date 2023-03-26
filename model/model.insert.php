@@ -21,4 +21,17 @@ function insert_borrowed_book($bdd, $idUser, $idBook){
     ));
 }
 
+function insert_review_book($bdd, $idUser, $idBook, $rating, $title, $content){
+    $stmt = $bdd->prepare(" INSERT INTO reviews (id_book, id_user, rating_review, title_review, comment_review) VALUES
+                            (:idBook, :idUser, :rating, :title, :content)
+                        ");
+    $stmt = $stmt->execute(array(
+        'idBook' => $idBook,
+        'idUser' => $idUser,
+        'rating' => $rating,
+        'title' => $title,
+        'content' => $content,
+    ));
+}
+
 ?>

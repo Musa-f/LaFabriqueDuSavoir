@@ -12,7 +12,7 @@ books.forEach(function(book){
 
 //Aplication de la rotation aléatoirement
 booksEven.forEach(function(book){
-    let randomRotation = rotationArray[Math.floor(Math.random() * 4)];
+    let randomRotation = rotationArray[Math.floor(Math.random() * 5)];
     book.classList.add(randomRotation);
 })
 

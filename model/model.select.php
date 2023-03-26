@@ -1,7 +1,7 @@
 <?php
 
 function select_all_titles_books($bdd){
-    $stmt = $bdd->prepare(" SELECT id_book, title_book, pdf_book FROM books");
+    $stmt = $bdd->prepare(" SELECT id_book, title_book, pdf_book FROM books ORDER BY id_book DESC");
     $stmt->execute();
     return $stmt->fetchAll();
 }
@@ -206,6 +206,39 @@ function select_post($bdd, $id){
     $stmt = $bdd->prepare("SELECT * FROM posts WHERE id_post = :id");
     $stmt->execute(array(
         'id' => $id
+    ));
+    return $stmt->fetch();
+}
+
+
+function select_exist_review($bdd, $idBook){
+    $stmt = $bdd->prepare("SELECT COUNT(*) FROM reviews WHERE id_book = :idBook");
+    $stmt->execute(array(
+        'idBook' => $idBook,
+    ));
+    $stmt = $stmt->fetchColumn();
+    return $stmt>0;
+}
+
+function select_reviews($bdd, $idBook){
+    $stmt = $bdd->prepare(" SELECT reviews.title_review as title, reviews.date_review as date, reviews.comment_review as comment, reviews.rating_review as rating, users.name_user as name
+                            FROM reviews 
+                            JOIN users
+                            ON reviews.id_user = users.id_user
+                            WHERE id_book = :idBook
+                            ORDER BY id_review DESC");
+    $stmt->execute(array(
+        'idBook' => $idBook,
+    ));
+    return $stmt->fetchAll();
+}
+
+function select_moy_review_book($bdd, $idBook){
+    $stmt = $bdd->prepare(" SELECT SUM(rating_review) / COUNT(rating_review) as moy
+                            FROM reviews
+                            WHERE id_book = :idBook");
+    $stmt->execute(array(
+        "idBook" => $idBook,
     ));
     return $stmt->fetch();
 }
