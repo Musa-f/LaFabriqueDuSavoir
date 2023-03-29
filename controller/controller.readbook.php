@@ -23,6 +23,8 @@ include "../view/view.readbook.php";
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+
+
     const url = "/la_fabrique_du_savoir/assets/pdf/<?=$pdf?>.pdf";
     let progressBar = document.querySelector('div.progress-bar');
 
@@ -40,9 +42,17 @@ include "../view/view.readbook.php";
                 ?>,
     pageIsRendering = false,
     pageNumIsPending = null;
-    const scale = 1.1,
+    const scale = 1.3,
     canvas = document.querySelector('#pdf-render'),
     ctx = canvas.getContext('2d');
+
+    //Get document
+    pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
+        pdfDoc = pdfDoc_;
+        console.log(pdfDoc.getPage);
+        document.querySelector('#page-count').textContent = pdfDoc.numPages;
+        renderPage(pageNum);
+    });
 
     const renderPage = num => {
         pageIsRendering = true;
@@ -116,17 +126,8 @@ include "../view/view.readbook.php";
         queueRenderPage(pageNum);
     }
 
-    //Get document
-    pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
-        pdfDoc = pdfDoc_;
-        document.querySelector('#page-count').textContent = pdfDoc.numPages;
-        renderPage(pageNum);
-    });
-
     //Button events
     document.querySelector('#prev-page').addEventListener('click', showPrevPage);
     document.querySelector('#next-page').addEventListener('click', showNextPage);
-
-    
 
 </script>

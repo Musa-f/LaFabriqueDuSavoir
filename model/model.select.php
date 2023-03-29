@@ -243,4 +243,26 @@ function select_moy_review_book($bdd, $idBook){
     return $stmt->fetch();
 }
 
+function select_exist_comment($bdd, $idPost){
+    $stmt = $bdd->prepare("SELECT COUNT(*) FROM comments WHERE id_post = :idPost ");
+    $stmt->execute(array(
+        "idPost" => $idPost
+    ));
+    $stmt = $stmt->fetchColumn();
+    return $stmt>0;
+}
+
+function select_comments($bdd, $idPost){
+    $stmt = $bdd->prepare(" SELECT comments.content_comment as comment, comments.date_comment as date, users.name_user as username
+                            FROM comments
+                            JOIN users
+                            ON comments.id_user = users.id_user
+                            WHERE comments.id_post = :idPost
+                            ");
+    $stmt->execute(array(
+        "idPost" => $idPost
+    ));
+    return $stmt->fetchAll();
+}
+
 ?>

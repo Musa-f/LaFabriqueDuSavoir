@@ -105,21 +105,18 @@ body {
   flex-direction: column;
   margin-bottom: 2%;
 }
-.post-comment form div .note {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-}
-.post-comment form div .note i {
-  font-size: 1.2em;
-  margin: 0 1%;
-}
-.post-comment form div label {
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-.post-comment form div input[type=text], .post-comment form div textarea {
+.post-comment form div textarea {
   background-color: white;
   border: 1px solid #2c3638;
   padding: 5px 10px;
+}
+.post-comment p {
+  font-style: italic;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.empty-space {
+  margin: 5% 0;
+  color: #d5d1c3;
 }/*# sourceMappingURL=post.css.map */

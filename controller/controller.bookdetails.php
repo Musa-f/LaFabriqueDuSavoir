@@ -27,4 +27,3 @@ $reviews = select_reviews($bdd, $id);
 
 $moy_review = select_moy_review_book($bdd, $id);
 $moy_review = round($moy_review['moy'], 0);
-echo $moy_review;

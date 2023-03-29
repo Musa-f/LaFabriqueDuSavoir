@@ -110,26 +110,21 @@ body{
         flex-direction: column;
         margin-bottom: 2%;
 
-        .note{
-            display: flex;
-            flex-direction: row;
-            justify-items: center;
-            i{
-                font-size: 1.2em;
-                margin: 0 1%;
-            }
-        }
-
-        label{
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"], textarea{
+        textarea{
             background-color: white;
             border: 1px solid #2c3638;
             padding: 5px 10px;
         }
     }
+
+    p{
+        font-style: italic;
+        margin-bottom: 15px;
+        text-align: center;
+    }
 }
 
+.empty-space{
+    margin: 5% 0;
+    color: #d5d1c3;
+}

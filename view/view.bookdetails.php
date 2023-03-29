@@ -132,3 +132,12 @@
                 <script src='/la_fabrique_du_savoir/view/js/addbook.js'></script>
                 ";
 ?>
+
+$.ajax({  
+    type: "POST",  
+    url: "", 
+    data: {dataSend : data},
+    success: function(response) {
+        console.log(response);
+    }
+});

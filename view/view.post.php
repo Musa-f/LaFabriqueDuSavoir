@@ -24,58 +24,33 @@
 
 <div class="comment-space">
     <div class="bulle-bloc"><div class="bulle"></div></div>
-    <div class="comment">
-        <div class="details-comment">
-            <h3>@username</h3>
-            <p>01/01/2000</p>
+    <?php if($existComment): ?>
+        <?php foreach($comments as $comment):?>
+        <div class="comment">
+            <div class="details-comment">
+                <h3>@<?=$comment['username']?></h3>
+                <p><?=$comment['date']?></p>
+            </div>
+            <div class="content"><?=$comment['comment']?></div>
         </div>
-        <div class="note"></div>
-        <h2>Titre</h2>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum fuga ullam ipsam corrupti magnam dolor voluptatibus modi accusantium eos?
-        </div>
-    </div>
-    <!-- Bloc de commentaires à enlever plus tard -->
-    <div class="comment">
-        <div class="details-comment">
-            <h3>@username</h3>
-            <p>01/01/2000</p>
-        </div>
-        <div class="note"></div>
-        <h2>Titre</h2>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum fuga ullam ipsam corrupti magnam dolor voluptatibus modi accusantium eos?
-        </div>
-    </div>
-    <div class="comment">
-        <div class="details-comment">
-            <h3>@username</h3>
-            <p>01/01/2000</p>
-        </div>
-        <div class="note"></div>
-        <h2>Titre</h2>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum fuga ullam ipsam corrupti magnam dolor voluptatibus modi accusantium eos?
-        </div>
-    </div>
-    <!-- FIN DES BLOCS -->
+        <?php endforeach?>
+    <?php else: ?>
+        <p class="empty-space">Pas de commentaire sous ce post. Soyez le premier !</p>
+    <?php endif ?>
 </div>
 
 
 <div class="post-comment">
     <h2>Poster un commentaire</h2>
-    <form action="" method="post">
+    <?php if(isset($msg)): ?>
+        <p class="msg"><?=$msg?></p>
+    <?php endif?>
+    <form method="post">
         <div>
-            <label for="">Titre</label>
-            <input type="text">
-        </div>
-        <div>
-            <label for="">Commentaire</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="comment" id="" cols="30" rows="10" placeholder="Votre commentaire..."></textarea>
         </div>
         <div>
             <input type="submit" name="submit" value="Envoyer" class="initialize style-btn">
         </div>
     </form>
-
 </div>

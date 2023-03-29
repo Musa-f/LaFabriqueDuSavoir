@@ -6,13 +6,14 @@ let note;
 
 function rating(e){
     let idRating = e.id;
-    for(let i = 0; i < icones.length; i++) {
-        if(icones[i] !== e) {
-          icones[i].classList.remove("bi-star-fill");
-          icones[i].classList.add("bi-star");
-        }
+    for(let i=0; i<icones.length; i++){
+      if(icones[i].id <= idRating){
+        icones[i].classList.replace("bi-star","bi-star-fill");
+      }else{
+        icones[i].classList.remove("bi-star-fill");
+        icones[i].classList.add("bi-star");
+      }
     }
-    e.classList.replace("bi-star","bi-star-fill");
     note = parseInt(idRating);
 }
 
