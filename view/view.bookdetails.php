@@ -124,7 +124,6 @@
             <input id="submit-btn" value="Envoyer" class="initialize style-btn">
         </div>
     </form>
-
 </div>
 
 <?php
@@ -133,11 +132,3 @@
                 ";
 ?>
 
-$.ajax({  
-    type: "POST",  
-    url: "", 
-    data: {dataSend : data},
-    success: function(response) {
-        console.log(response);
-    }
-});

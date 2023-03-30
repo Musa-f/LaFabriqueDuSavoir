@@ -1,5 +1,1 @@
-<?php
-
-header("Location: controller/controller_pages.php");
-
-?>
+<?php header("Location: controller/controller_pages.php") ?>

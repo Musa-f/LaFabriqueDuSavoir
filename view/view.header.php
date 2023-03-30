@@ -19,17 +19,13 @@
     <body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
         <header>
 
-            <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1) {
-                echo "
-                    <div class='box-dashboard'>
-                        <a href='../controller/controller.dashboard.php?dashboard=users' class='initialize dashboard'>
-                            <i class='bi bi-columns-gap'></i>
-                        </a>
-                    </div>
-                    ";
-            }
-            ?>
-            
+            <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1):?>
+                <div class='box-dashboard'>
+                    <a href='../controller/controller.dashboard.php?dashboard=users' class='initialize dashboard'>
+                        <i class='bi bi-columns-gap'></i>
+                    </a>
+                </div>
+            <?php endif?>
             
             <a href="../controller/controller.pages.php?page=view.homepage">
                 <img src="/la_fabrique_du_savoir/assets/img/header.svg" alt="" class="header-svg">
@@ -37,20 +33,15 @@
             
             <nav>
                 <ul class="nav-list">
-                <?php if(!isset($_SESSION['user'])){
-                    echo "
-                        <li><a href='../controller/controller.pages.php?page=view.blog'>BLOG</a></li>
-                        <li class='nav-separator'><i class='bi bi-dot'></i></li>
-                        <li><a href='../controller/controller.pages.php?page=view.connection'>CONNEXION</a></li>
-                        <li class='nav-separator'><i class='bi bi-dot'></i></li>
-                        <li><a href='../controller/controller.pages.php?page=view.registration'>INSCRIPTION</a></li>
-                        ";
-                }
-                ?>
+                <?php if(!isset($_SESSION['user'])): ?>
+                    <li><a href='../controller/controller.pages.php?page=view.blog'>BLOG</a></li>
+                    <li class='nav-separator'><i class='bi bi-dot'></i></li>
+                    <li><a href='../controller/controller.pages.php?page=view.connection'>CONNEXION</a></li>
+                    <li class='nav-separator'><i class='bi bi-dot'></i></li>
+                    <li><a href='../controller/controller.pages.php?page=view.registration'>INSCRIPTION</a></li>
+                <?php endif ?>
                     
-
-                    <?php if(isset($_SESSION['user'])){
-                        echo "
+                <?php if(isset($_SESSION['user'])):?>
                             <li><a href='../controller/controller.pages.php?page=view.mylibrary'>MES LIVRES</a></li>
                             <li class='nav-separator'><i class='bi bi-dot'></i></li>
                             <li><a href='../controller/controller.pages.php?page=view.profil'>PROFIL</a></li>
@@ -58,10 +49,7 @@
                             <li><a href='../controller/controller.pages.php?page=view.blog'>BLOG</a></li>
                             <li class='nav-separator'><i class='bi bi-dot'></i></li>
                             <li><a href='../controller/controller.logout.php'>DECONNEXION</a></li>
-                            ";
-                    }
-                    ?>
-
+                    <?php endif ?>
                 </ul>
             </nav>
         </header>
