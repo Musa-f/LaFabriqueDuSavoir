@@ -10,3 +10,13 @@ Pour vérifier si les modifications sont à prendre en compte :
 -> Si bouton d'édition cliqué : retirer "disabled" et permettre la modification de donnée
 -> Si bouton valider cliqué : vérifier le type de donné récupéré (formatage) avec JS, si correct, envoyé les données via AJAX
 -> Si bouton annuler cliqué : remettre les informations de base et les input en "disabled"
+
+
+last version notes (march):
+- Ajouter accueil dans la nav du site
+- Accueil dans le dashboard en dehors du menu
+- Highlight les onglets de gestion dans le dashboard
+- Indiquer un bouton "retirer le livre" si déjà ajouté
+- Changer la fonction JS du controller
+- Remplacer les alerts JS par des modals personnalisées 
+- Ajouter les commentaires et critiques de façon dynamique dans l'espace commentaire
