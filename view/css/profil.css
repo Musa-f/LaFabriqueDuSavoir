@@ -22,6 +22,15 @@
     margin-top: 40px;
 }
 
+.validate{
+    color: #2c3638;
+    border-bottom: 2px solid #2c3638;
+}
+
+.validate:focus, .validate:active{
+    outline: none;
+}
+
 .btn-actions button{
     width: 120px;
     margin-bottom: 10px;

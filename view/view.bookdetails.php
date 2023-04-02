@@ -27,11 +27,9 @@
             </h2>
             <h3><?="Date de publication: ".$book['date']?></h3>
             <div class="note">
-                <i class="bi <?= ($moy_review>=1) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($moy_review>=2) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($moy_review>=3) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($moy_review>=4) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($moy_review>=5) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <?php for($i=1; $i<=5; $i++):?>
+                    <i class="bi <?= ($moy_review>=$i) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <?php endfor?>
             </div>
             <p class="genres">
                 <p>
@@ -81,11 +79,9 @@
                 <p><?=$review["date"]?></p>
             </div>
             <div>
-                <i class="bi <?= ($review["rating"]>=1) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($review["rating"]>=2) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($review["rating"]>=3) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($review["rating"]>=4) ? "bi-star-fill" : "bi-star"; ?>"></i>
-                <i class="bi <?= ($review["rating"]>=5) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <?php for($i=1; $i<=5; $i++):?>
+                    <i class="bi <?= ($review["rating"]>=$i) ? "bi-star-fill" : "bi-star"; ?>"></i>
+                <?php endfor?>
             </div>
             <div class="note"></div>
             <h2><?=$review["title"]?></h2>
