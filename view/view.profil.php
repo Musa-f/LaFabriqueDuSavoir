@@ -5,16 +5,18 @@
 
 <div class="box">
     <div class="profil">
+        <p id="errors" class="errorMsg"></p>
+        <p id="success" class="successMsg"></p>
         <div class="grid-input">
             <label for="">Nom d'utilisateur</label>
-            <input type="text" value="<?=$dataUser['name_user']?>" disabled class="initialize disabled-style">
+            <input type="text" name="name" value="<?=$dataUser['name_user']?>" disabled class="initialize disabled-style">
             <button class="initialize btn-edit" onclick="edition(this)">
                 <i class="bi bi-pencil-square"></i>
             </button>
         </div>
         <div class="grid-input">
             <label for="">Adresse mail</label>
-            <input type="email" value="<?=$dataUser['email_user']?>" disabled class="initialize disabled-style">
+            <input type="email" name="email" value="<?=$dataUser['email_user']?>" disabled class="initialize disabled-style">
             <button class="initialize btn-edit" onclick="edition(this)">
                 <i class="bi bi-pencil-square"></i>
             </button>
@@ -27,7 +29,7 @@
             </button>
         </div>
         <div class="btn-actions">
-            <button class="initialize style-btn" onclick="submit()">Valider</button>
+            <button class="initialize style-btn disabled-btn" name="submit" onclick="submit(<?=$_SESSION['user']['id_user']?>)" disabled>Valider</button>
             <button class="initialize cancel-btn" onclick="refresh()">Annuler</button>
         </div>
 </div>

@@ -35,3 +35,22 @@ if(isset($_POST['idBook']) AND isset($_POST['idUser']) AND isset($_POST['rating'
     $content = $_POST['message'];
     insert_review_book($bdd, $idUser, $idBook, $rating, $title, $content);
 }
+
+if(isset($_POST['inputName']) AND isset($_POST['idUserChange'])){
+    $newName = $_POST['inputName'];
+    $idUser = $_POST['idUserChange'];
+    update_username($bdd, $idUser, $newName);
+}
+
+if(isset($_POST['inputEmail']) AND isset($_POST['idUserChange'])){
+    $newEmail = $_POST['inputEmail'];
+    $idUser = $_POST['idUserChange'];
+    update_email($bdd, $idUser, $newEmail);
+    
+}
+
+if(isset($_POST['inputPswd']) AND isset($_POST['idUserChange'])){
+    $newPswd = $_POST['inputPswd'];
+    $idUser = $_POST['idUserChange'];
+    update_pswd($bdd, $idUser, $newPswd);
+}

@@ -36,3 +36,36 @@ function update_state_inprogress($bdd, $idBook, $idUser){
         "idBook" => $idBook
     ));
 }
+
+function update_username($bdd, $idUser, $newName){
+    $stmt = $bdd->prepare(" UPDATE users
+                            SET name_user = :newName
+                            WHERE id_user = :idUser
+                        ");
+    $stmt->execute(array(
+        "newName" => $newName,
+        "idUser" => $idUser
+    ));
+}
+
+function update_email($bdd, $idUser, $newEmail){
+    $stmt = $bdd->prepare(" UPDATE users
+                            SET email_user = :newEmail
+                            WHERE id_user = :idUser
+                        ");
+    $stmt->execute(array(
+        "newEmail" => $newEmail,
+        "idUser" => $idUser
+    ));
+}
+
+function update_pswd($bdd, $idUser, $newPswd){
+    $stmt = $bdd->prepare(" UPDATE users
+                            SET pswd_user = :newPswd
+                            WHERE id_user = :idUser
+                        ");
+    $stmt->execute(array(
+        "newPswd" => $newPswd,
+        "idUser" => $idUser
+    ));
+}
