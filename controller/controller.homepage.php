@@ -22,3 +22,4 @@ if(isset($_POST['submit'])){
         $filterBooks = select_books_where_genre($bdd, $genre);
     }
 }
+

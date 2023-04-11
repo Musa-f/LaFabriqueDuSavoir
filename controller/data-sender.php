@@ -52,5 +52,6 @@ if(isset($_POST['inputEmail']) AND isset($_POST['idUserChange'])){
 if(isset($_POST['inputPswd']) AND isset($_POST['idUserChange'])){
     $newPswd = $_POST['inputPswd'];
     $idUser = $_POST['idUserChange'];
-    update_pswd($bdd, $idUser, $newPswd);
+    $encryptedPswd = (password_hash($newPswd, PASSWORD_BCRYPT));
+    update_pswd($bdd, $idUser, $encryptedPswd);
 }

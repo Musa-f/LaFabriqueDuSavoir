@@ -29,8 +29,8 @@
             </button>
         </div>
         <div class="btn-actions">
-            <button class="initialize style-btn disabled-btn" name="submit" onclick="submit(<?=$_SESSION['user']['id_user']?>)" disabled>Valider</button>
-            <button class="initialize cancel-btn" onclick="refresh()">Annuler</button>
+            <button class="initialize style-btn" name="submit" onclick="submit(<?=$_SESSION['user']['id_user']?>)">Valider</button>
+            <button class="initialize cancel-btn" name="cancel" onclick="refresh()">Annuler</button>
         </div>
 </div>
 </div>

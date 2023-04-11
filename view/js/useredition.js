@@ -1,22 +1,24 @@
-let currentInputName = document.querySelector('input[name="name"]').value;
-let currentInputEmail = document.querySelector('input[name="email"]').value;
+$('button[name="submit"]').hide();
+$('button[name="cancel"]').hide();
 let inputName = null;
 let inputEmail = null;
 let inputPswd = null;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 let error1 = null;
 let error2 = null;
 let error3 = null;
-let compteur = 0;
-let submitBtn = document.querySelector('button[name="submit"]');
+let submitBtn = document.querySelector("button[name='submit']");
 let errorsText = document.getElementById("errors");
 let successText = document.getElementById("success");
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function edition(e){
     let icon = e.querySelector("i");
     let input = e.previousElementSibling;
+    currentValueName = input.value;
+    currentValueName = input.value;
     if(icon.classList.contains("bi-pencil-square")){
-        editStyle(input, icon, "valid")
+        editStyle(input, icon, "valid");
+        $('button[name="submit"]').hide();
     }else{
         if(input.type === "text"){
             if(input.value.length < 5){
@@ -54,24 +56,23 @@ function edition(e){
                 errorsText.innerText = "";
             }
         }
+        submitDisabled();
     }
-    submitDisabled();
+    $('button[name="cancel"]').show();
 }
 
 
 function submitDisabled(){
     if(error1 == null && error2 == null && error3 == null){
-        submitBtn.removeAttribute('disabled');
-        submitBtn.classList.remove('disabled-btn');
-    }else{
-        submitBtn.setAttribute('disabled', '');
-        submitBtn.classList.add('disabled-btn');
+        $('button[name="submit"]').show();
+    }
+    else{
+        $('button[name="submit"]').hide();
     }
 }
 
 function submit(id){
-    submitBtn.setAttribute('disabled', '');
-    submitBtn.classList.add('disabled-btn');
+    $('button[name="submit"]').hide();
     successText.innerText = "Vos modifications ont été apportées avec succès."
     if(inputName !== null){
         $.ajax({  
