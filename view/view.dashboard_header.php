@@ -18,11 +18,10 @@
             <div>
                 <h1>Tableau de bord</h1>
                 <br>
-                <a href="../controller/controller.pages.php?page=view_homepage"><h3>Accueil</h3></a>
                 <a href='../controller/controller.dashboard.php?dashboard=users'><h3>Utilisateurs</h3></a>
                 <a href='../controller/controller.dashboard.php?dashboard=books'><h3>Livres</h3></a>
             </div>
         </nav>
 
         <div id="content">
-        
+        <a href="../controller/controller.pages.php?page=view_homepage" class="back"><i class="bi bi-house-fill"></i></a>

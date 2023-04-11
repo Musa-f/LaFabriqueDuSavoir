@@ -265,4 +265,26 @@ function select_comments($bdd, $idPost){
     return $stmt->fetchAll();
 }
 
+function select_all_users($bdd){
+    $stmt = $bdd->prepare("SELECT * FROM users");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function select_all_comments($bdd){
+    $stmt = $bdd->prepare("SELECT * FROM comments");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function select_all_reviews($bdd){
+    $stmt = $bdd->prepare(" SELECT reviews.comment_review as comment, users.name_user as username
+                            FROM reviews
+                            JOIN users
+                            ON reviews.id_user = users.id_user
+                            ");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 ?>

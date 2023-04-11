@@ -4,6 +4,9 @@ include 'controller.model_links.php';
 
 if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     include "../view/view.dashboard_header.php";
+    $users = select_all_users($bdd);
+    $comments = select_all_comments($bdd);
+    $reviews = select_all_reviews($bdd);
 
     if($_GET['dashboard'] == 'users'){
         include "../view/view.dashboard_users.php";

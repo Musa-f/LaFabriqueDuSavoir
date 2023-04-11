@@ -34,9 +34,10 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($users as $user):?>
                 <tr>
-                    <td>user898</td>
-                    <td>user@mail.com</td>
+                    <td><?=$user['name_user']?></td>
+                        <td><?=$user['email_user']?></td>
                     <td>
                         <select name="" id="" class="initialize">
                             <option value="">Membre</option>
@@ -47,6 +48,7 @@
                         <button class="initialize"><i class="bi bi-person-x"></i></button>
                     </td>
                 </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>
@@ -81,9 +83,10 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($reviews as $review):?>
                 <tr>
-                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis tenetur, labore nihil quidem molestiae soluta dolores omnis eligendi nobis doloribus ducimus nesciunt</td>
-                    <td>user@mail.com</td>
+                    <td class="reviews"><?=$review['comment']?></td>
+                    <td><?=$review['username']?></td>
                     <td>
                         <button class="initialize"><i class="bi bi-eye"></i></button>
                     </td>
@@ -91,26 +94,7 @@
                         <button class="initialize style-btn">Supprimer</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis tenetur, labore nihil quidem molestiae soluta dolores omnis eligendi nobis doloribus ducimus nesciunt</td>
-                    <td>user@mail.com</td>
-                    <td>
-                        <button class="initialize"><i class="bi bi-eye"></i></button>
-                    </td>
-                    <td>
-                        <button class="initialize style-btn">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis tenetur, labore nihil quidem molestiae soluta dolores omnis eligendi nobis doloribus ducimus nesciunt</td>
-                    <td>user883939@mail.com</td>
-                    <td>
-                        <button class="initialize visibility"><i class="bi bi-eye"></i></button>
-                    </td>
-                    <td>
-                        <button class="initialize style-btn">Supprimer</button>
-                    </td>
-                </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>

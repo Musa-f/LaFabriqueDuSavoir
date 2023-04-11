@@ -7,6 +7,15 @@ body {
   background: #d5d1c3;
 }
 
+.back i {
+  position: absolute;
+  color: #2c3638;
+  right: 20px;
+  top: 10px;
+  font-size: 2em;
+  position: fixed;
+}
+
 nav {
   position: fixed; /* fixe la barre de navigation à gauche */
   top: 0;
@@ -22,6 +31,7 @@ nav div h1 {
   font-family: "Playfair Display";
   font-size: 2.4em;
   color: #d5d1c3;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 nav div h3 {

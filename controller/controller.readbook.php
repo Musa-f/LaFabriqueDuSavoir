@@ -23,8 +23,6 @@ include "../view/view.readbook.php";
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-
-
     const url = "/la_fabrique_du_savoir/assets/pdf/<?=$pdf?>.pdf";
     let progressBar = document.querySelector('div.progress-bar');
 
@@ -84,9 +82,6 @@ include "../view/view.readbook.php";
         <?php if(isset($_SESSION['user']) AND $existBook): ?>
             let idUser = parseInt("<?=$idUser?>");
             let idBook = parseInt("<?=$idBook?>") ;
-            console.log(idUser);
-            console.log(num);
-            console.log(idBook);
             $.ajax({  
                 type: "POST",  
                 url: "data-sender.php", 
@@ -129,5 +124,4 @@ include "../view/view.readbook.php";
     //Button events
     document.querySelector('#prev-page').addEventListener('click', showPrevPage);
     document.querySelector('#next-page').addEventListener('click', showNextPage);
-
 </script>
