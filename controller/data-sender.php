@@ -55,3 +55,9 @@ if(isset($_POST['inputPswd']) AND isset($_POST['idUserChange'])){
     $encryptedPswd = (password_hash($newPswd, PASSWORD_BCRYPT));
     update_pswd($bdd, $idUser, $encryptedPswd);
 }
+
+if(isset($_POST['idUserRole']) AND isset($_POST['value_option'])){
+    $idUser = $_POST['idUserRole'];
+    $newRole = $_POST['value_option'];
+    update_role_user($bdd, $idUser, $newRole);
+}

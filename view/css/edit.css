@@ -42,3 +42,7 @@
     color: white;
     cursor: pointer;
 }
+
+.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline{
+    height: 300px;
+}

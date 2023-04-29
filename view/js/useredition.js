@@ -73,6 +73,7 @@ function submitDisabled(){
 
 function submit(id){
     $('button[name="submit"]').hide();
+    $('button[name="cancel"]').hide();
     successText.innerText = "Vos modifications ont été apportées avec succès."
     if(inputName !== null){
         $.ajax({  

@@ -39,9 +39,14 @@
                     <td><?=$user['name_user']?></td>
                         <td><?=$user['email_user']?></td>
                     <td>
-                        <select name="" id="" class="initialize">
-                            <option value="">Membre</option>
-                            <option value="">Admin</option>
+                        <select name="" id="" class="initialize" onchange="change_role(this, <?=$user['id_user']?>)">
+                            <?php 
+                            $defaultValue = $user['name_role'];
+                            foreach($roles as $role):?>
+                            <option value="<?=$role['id_role']?>" <?= $defaultValue == $role['name_role'] ? "selected" : ""?> >
+                                <?=$role['name_role']?>
+                            </option>
+                            <?php endforeach?>
                         </select>
                     </td>
                     <td>
@@ -129,9 +134,10 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($comments as $comment):?>
                 <tr>
-                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis tenetur, labore nihil quidem molestiae soluta dolores omnis eligendi nobis doloribus ducimus nesciunt</td>
-                    <td>user883939@mail.com</td>
+                    <td><?=$comment['comment']?></td>
+                    <td><?=$comment['username']?></td>
                     <td>
                         <button class="initialize visibility"><i class="bi bi-eye"></i></button>
                     </td>
@@ -139,6 +145,7 @@
                         <button class="initialize style-btn">Supprimer</button>
                     </td>
                 </tr>
+                <?php endforeach?>
             </tbody>
         </table>
     </div>

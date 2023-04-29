@@ -29,14 +29,13 @@
             <thead>
                 <tr>
                     <th>Titre</th>
-                    <th>Auteur</th>
                     <th colspan="2">Actions</th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($books as $book):?>
                 <tr>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing.</td>
-                    <td>Flaubert</td>
+                    <td><?=$book['title_book']?></td>
                     <td>
                         <button class="initialize"><i class="bi bi-pencil-square"></i></button>
                     </td>
@@ -44,6 +43,7 @@
                         <button class="initialize style-btn">Supprimer</button>
                     </td>
                 </tr>
+                <?php endforeach?>
             </tbody>
         </table>
     </div>
@@ -146,8 +146,9 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($authors as $author):?>
                 <tr>
-                    <td>Zola</td>
+                    <td><?=$author['first_name_author']." ".$author['last_name_author']?></td>
                     <td>
                         <button class="initialize"><i class="bi bi-pencil-square"></i></button>
                     </td>
@@ -155,6 +156,7 @@
                         <button class="initialize style-btn">Supprimer</button>
                     </td>
                 </tr>
+                <?php endforeach?>
             </tbody>
         </table>
     </div>
@@ -190,8 +192,9 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($genres as $genre):?>
                 <tr>
-                    <td>Zola</td>
+                    <td><?=$genre['name_genre']?></td>
                     <td>
                         <button class="initialize"><i class="bi bi-pencil-square"></i></button>
                     </td>
@@ -199,6 +202,7 @@
                         <button class="initialize style-btn">Supprimer</button>
                     </td>
                 </tr>
+                <?php endforeach?>
             </tbody>
         </table>
     </div>

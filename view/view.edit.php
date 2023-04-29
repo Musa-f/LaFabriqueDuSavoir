@@ -7,23 +7,23 @@
     <?php endif?>
 </div>
 
-<form action="" method="post" class="edit">
+<form action="" method="post" class="edit" enctype="multipart/form-data">
 
     <div class="title-post">
         <label for="">Titre de l'article :</label>
-        <input type="text">
+        <input name="title" type="text">
     </div>
 
     <div class="custom-file">
         <label for="">Image :</label>
-        <input type="file" class="custom-file-input" id="customFile">
+        <input type="file" name="file" class="custom-file-input" id="customFile" accept="image/png, image/jpeg">
     </div>
 
-    <textarea name="" id="" cols="30" rows="10" class="editor"></textarea>
+    <textarea name="content" cols="30" rows="10" class="editor"></textarea>
 
     <div class="buttons-edit">
         <input type="submit" value ="Annuler" class="initialize style-btn">
-        <input type="submit" value="Valider" class="initialize style-btn">
+        <input name="submit" type="submit" value="Valider" class="initialize style-btn">
     </div>
 </form>
 

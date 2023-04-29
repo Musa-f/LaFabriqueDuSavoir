@@ -18,6 +18,22 @@ function select_all_authors_book($bdd, $idBook){
     return $stmt->fetchAll();
 }
 
+function select_all_authors($bdd){
+    $stmt = $bdd->prepare(" SELECT * 
+                            FROM authors
+                        ");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function select_all_genres($bdd){
+    $stmt = $bdd->prepare(" SELECT * 
+                            FROM genres
+                        ");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 function select_data_user($bdd, $input){
     $stmt = $bdd->prepare('SELECT * FROM users WHERE id_user = :id');
     $stmt->execute(array(
@@ -266,16 +282,21 @@ function select_comments($bdd, $idPost){
 }
 
 function select_all_users($bdd){
-    $stmt = $bdd->prepare("SELECT * FROM users");
+    $stmt = $bdd->prepare(" SELECT * 
+                            FROM users
+                            JOIN roles 
+                            ON users.id_role = roles.id_role
+                            WHERE users.id_user != 4
+                        ");
     $stmt->execute();
     return $stmt->fetchAll();
 }
 
-function select_all_comments($bdd){
+/*function select_all_comments($bdd){
     $stmt = $bdd->prepare("SELECT * FROM comments");
     $stmt->execute();
     return $stmt->fetchAll();
-}
+}*/
 
 function select_all_reviews($bdd){
     $stmt = $bdd->prepare(" SELECT reviews.comment_review as comment, users.name_user as username
@@ -283,6 +304,24 @@ function select_all_reviews($bdd){
                             JOIN users
                             ON reviews.id_user = users.id_user
                             ");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function select_all_comments($bdd){
+    $stmt = $bdd->prepare(" SELECT comments.content_comment as comment, users.name_user as username
+                            FROM comments
+                            JOIN users
+                            ON comments.id_user = users.id_user
+                        ");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function select_all_roles($bdd){
+    $stmt = $bdd->prepare(" SELECT *
+                            FROM roles
+                        ");
     $stmt->execute();
     return $stmt->fetchAll();
 }

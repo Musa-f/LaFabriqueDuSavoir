@@ -69,3 +69,14 @@ function update_pswd($bdd, $idUser, $newPswd){
         "idUser" => $idUser
     ));
 }
+
+function update_role_user($bdd, $idUser, $newRole){
+    $stmt = $bdd->prepare(" UPDATE users
+                            SET id_role = :newRole
+                            WHERE id_user = :idUser
+                        ");
+    $stmt->execute(array(
+        "newRole" => $newRole,
+        "idUser" => $idUser
+    ));
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 02 avr. 2023 à 14:54
+-- Généré le : ven. 28 avr. 2023 à 15:58
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -533,7 +533,7 @@ INSERT INTO `borrowed_books` (`id_book`, `id_user`, `borrow_date`, `pages_follow
 (24, 4, '2023-03-18 16:56:36', 12, 0),
 (26, 5, '2023-03-25 14:29:10', 1, 0),
 (33, 5, '2023-03-20 21:15:23', 1, 0),
-(53, 5, '2023-03-20 21:15:50', 1, 0),
+(53, 5, '2023-03-20 21:15:50', 9, 0),
 (58, 5, '2023-03-20 21:15:37', 512, 1),
 (85, 5, '2023-03-20 20:36:42', 3, 1),
 (98, 3, '2023-03-28 08:26:08', 18, 0),
@@ -712,7 +712,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_user`, `name_user`, `email_user`, `pswd_user`, `registration_date_user`, `id_role`) VALUES
 (3, 'Giani', 'giani@mail.com', '$2y$10$0cnSNqJy1U3ZL8yHzYMIruookAb.EjuLHL2RRQjbH1htNkFlh0.86', '2023-03-11 15:38:36', 10),
 (4, 'Admin', 'contact@fmusaeva.com', '$2y$10$bMqfvAwtThfOs5EBsopCie5p8RHD41JquOYmrCDu6VkuFBM8k1uXq', '2023-03-11 15:41:41', 1),
-(5, 'Harry', 'harry@gmail.com', '$2y$10$C.S9QQAbNO.hEEUHFpXsoONSNqtnVTJzLIjOGq343XBKjQPFg3leK', '2023-03-14 17:53:32', 10);
+(5, 'Harry', 'harry@gmail.com', '$2y$10$4.Guff.p25KmFfw.5xudIeOCNTO.oPw5j6Oh1aBa7rln6fFdyr.My', '2023-03-14 17:53:32', 10);
 
 --
 -- Index pour les tables déchargées
