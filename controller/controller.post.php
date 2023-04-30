@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
             $idUser = $_SESSION['user']['id_user'];
             $comment = $_POST['comment'];
             $msg = "Votre commentaire a été envoyé.";
-            insert_post($bdd, $idUser, $id, $comment);
+            insert_post_comment($bdd, $idUser, $id, $comment);
         }else{
             $msg = "Entrez un commentaire.";
         }

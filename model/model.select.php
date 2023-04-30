@@ -219,7 +219,12 @@ function select_all_genres_names($bdd){
 }
 
 function select_post($bdd, $id){
-    $stmt = $bdd->prepare("SELECT * FROM posts WHERE id_post = :id");
+    $stmt = $bdd->prepare(" SELECT *
+                            FROM posts 
+                            LEFT JOIN possess_images
+                            ON posts.id_post = possess_images.id_post
+                            WHERE posts.id_post = :id
+                        ");
     $stmt->execute(array(
         'id' => $id
     ));
@@ -324,6 +329,18 @@ function select_all_roles($bdd){
                         ");
     $stmt->execute();
     return $stmt->fetchAll();
+}
+
+function select_all_id_img($bdd){
+    $stmt = $bdd->prepare("SELECT id_image FROM images");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function select_max_id_post($bdd){
+    $stmt = $bdd->prepare("SELECT MAX(id_post) FROM posts");
+    $stmt->execute();
+    return $stmt->fetch();
 }
 
 ?>

@@ -16,7 +16,9 @@
     </div>
     <h1><?=$post['title_post']?></h1>
     <h3><?= strftime('%e %B %Y', strtotime($post['date_post']))?></h3>
-    <div class="img"><img src="https://fastly.picsum.photos/id/1073/2000/2000.jpg?hmac=UY7GweKvR6phdz9xr8esBZBkk65SVbKE6Sv2iPOANmU" alt=""></div>
+    <div class="img">
+        <img src="<?= $post['id_image'] != null ? '../assets/uploads/'.$post['id_image'] : '../assets/uploads/post_1.jpg' ?>" alt="">
+    </div>
     <p><?=nl2br($post['content_post'])?></p>
    
 </div>

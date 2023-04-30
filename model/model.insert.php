@@ -34,7 +34,7 @@ function insert_review_book($bdd, $idUser, $idBook, $rating, $title, $content){
     ));
 }
 
-function insert_post($bdd, $idUser, $idPost, $comment){
+function insert_post_comment($bdd, $idUser, $idPost, $comment){
     $stmt = $bdd->prepare(" INSERT INTO comments(id_user, id_post, content_comment) VALUES
                             (:idUser, :idPost, :contentPost)
                         ");
@@ -42,6 +42,40 @@ function insert_post($bdd, $idUser, $idPost, $comment){
         "idUser"=> $idUser,
         "idPost" => $idPost,
         "contentPost" => $comment
+    ));
+}
+
+function insert_image($bdd, $id_image, $name_image, $size_image){
+    $stmt = $bdd->prepare(" INSERT INTO images(id_image, name_image, size_image) VALUES
+                            (:idImg, :nameImg, :sizeImg)
+                        ");
+    $stmt->execute(array(
+        "idImg" => $id_image,
+        "nameImg" => $name_image,
+        "sizeImg" => $size_image
+    ));
+}
+
+function insert_post_image($bdd, $id_image, $id_user, $id_post){
+    $stmt = $bdd->prepare(" INSERT INTO possess_images(id_user, id_image, id_post) VALUES
+                            (:idUser, :idImg, :idPost);
+                        ");
+    $stmt->execute(array(
+        "idUser" => $id_user,
+        "idImg" => $id_image,
+        "idPost" => $id_post,
+    ));
+}
+
+function insert_post($bdd, $titlePost, $contentPost, $idUser){
+    $stmt = $bdd->prepare(" INSERT INTO posts(title_post, content_post, id_user) VALUES
+                            (:titlePost, :contentPost, :idUser)
+                            
+                        ");
+    $stmt->execute(array(
+        "titlePost" => $titlePost,
+        "contentPost" => $contentPost,
+        "idUser" => $idUser
     ));
 }
 

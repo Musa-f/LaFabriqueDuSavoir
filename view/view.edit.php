@@ -1,13 +1,13 @@
 <div class="title">
     <img src="/la_fabrique_du_savoir/assets/img/l-separator.svg" alt="">
-    <?php if($id == 0):?>
+    <?php if($id_post == 0):?>
         <h2>Nouveau article</h2>
     <?php else:?>
         <h2>Modifier l'article</h2>
     <?php endif?>
 </div>
 
-<form action="" method="post" class="edit" enctype="multipart/form-data">
+<form method="post" class="edit" enctype="multipart/form-data">
 
     <div class="title-post">
         <label for="">Titre de l'article :</label>
