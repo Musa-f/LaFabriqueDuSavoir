@@ -219,7 +219,7 @@ function select_all_genres_names($bdd){
 }
 
 function select_post($bdd, $id){
-    $stmt = $bdd->prepare(" SELECT *
+    $stmt = $bdd->prepare(" SELECT *, posts.id_post as id
                             FROM posts 
                             LEFT JOIN possess_images
                             ON posts.id_post = possess_images.id_post

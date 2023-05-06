@@ -11,7 +11,7 @@
 
     <div class="title-post">
         <label for="">Titre de l'article :</label>
-        <input name="title" type="text">
+        <input name="title" type="text" value="<?= $id_post > 0 ? $post['title_post'] : '' ?>">
     </div>
 
     <div class="custom-file">
@@ -19,7 +19,9 @@
         <input type="file" name="file" class="custom-file-input" id="customFile" accept="image/png, image/jpeg">
     </div>
 
-    <textarea name="content" cols="30" rows="10" class="editor"></textarea>
+    <textarea name="content" cols="30" rows="10" class="editor">
+        <?= $id_post > 0 ? $post['content_post'] : '' ?>
+    </textarea>
 
     <div class="buttons-edit">
         <input type="submit" value ="Annuler" class="initialize style-btn">

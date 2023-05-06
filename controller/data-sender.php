@@ -61,3 +61,9 @@ if(isset($_POST['idUserRole']) AND isset($_POST['value_option'])){
     $newRole = $_POST['value_option'];
     update_role_user($bdd, $idUser, $newRole);
 }
+
+if(isset($_GET['delete_post'])){
+    $idPost = $_GET['delete_post'];
+    delete_post($bdd, $idPost);
+    header("Location: controller.pages.php?page=view.blog"); 
+}

@@ -43,6 +43,8 @@
     cursor: pointer;
 }
 
-.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline{
+
+
+.ck .ck-content, .ck .ck-content:focus{
     height: 300px;
 }

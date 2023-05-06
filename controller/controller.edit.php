@@ -14,6 +14,7 @@ $last_id_post = (select_max_id_post($bdd)[0])+1;
 
 $id_user = $_SESSION['user']['id_user'];
 $id_post = $_GET['id'];
+$post = select_post($bdd, $id_post);
 $errors = [];
 $file_name;
 $id_image;

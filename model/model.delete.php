@@ -8,4 +8,11 @@ function delete_borrowed_book($bdd, $idBook, $idUser){
     ));
 }
 
+function delete_post($bdd, $idPost){
+    $stmt = $bdd->prepare("DELETE FROM posts WHERE id_post = :idPost");
+    $stmt->execute(array(
+        "idPost" => $idPost
+    ));
+}
+
 ?>

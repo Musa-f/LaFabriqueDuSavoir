@@ -2,12 +2,12 @@
     <div class="buttons">
         <div class="back"><a href="../controller/controller.pages.php?page=view.blog"><i class="bi bi-arrow-left"></i> Retour</a></div>
 
-        <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1): ?>
+        <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1):?>
             <div class="editions">
-                <a href="../controller/controller.pages.php?page=view.edit&id=<?=$post['id_post']?>">
+                <a href="../controller/controller.pages.php?page=view.edit&id=<?=$post['id']?>">
                     <button class="initialize"><i class="bi bi-pencil-square"></i></button>
                 </a>
-                <a href="">
+                <a href="../controller/data-sender.php?delete_post=<?=$post['id']?>">
                     <button class="initialize"><i class="bi bi-x-square"></i></button>
                 </a>
             </div>
@@ -17,7 +17,7 @@
     <h1><?=$post['title_post']?></h1>
     <h3><?= strftime('%e %B %Y', strtotime($post['date_post']))?></h3>
     <div class="img">
-        <img src="<?= $post['id_image'] != null ? '../assets/uploads/'.$post['id_image'] : '../assets/uploads/post_1.jpg' ?>" alt="">
+        <img src="<?= $post['id_image'] != null ? '../assets/uploads/'.$post['id_image'] : '../assets/uploads/post_1.jpg' ?>">
     </div>
     <p><?=nl2br($post['content_post'])?></p>
    
