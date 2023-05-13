@@ -1,0 +1,35 @@
+.contact{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.contact div{
+    margin-bottom: 20px;
+}
+
+.contact div:nth-child(1){
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.contact div:nth-child(1) div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.contact input, .contact textarea{
+    width: 100%;
+}
+
+.contact textarea{
+    border: 1px solid #2c3638;
+}
+
+.contact div:nth-child(4){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

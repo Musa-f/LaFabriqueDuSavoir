@@ -8,7 +8,7 @@
                         <li><i class="bi bi-caret-right"></i> <a href="../controller/controller.pages.php?page=view.we" class="footer-list-a">Qui sommes-nous ?</a></li>
                         <li><i class="bi bi-caret-right"></i> <a href="../controller/controller.pages.php?page=view.politique" class="footer-list-a">Politique de confidentialité</a></li>
                         <li><i class="bi bi-caret-right"></i> <a href="../controller/controller.pages.php?page=view.faq" class="footer-list-a">Foire aux questions</a></li>
-                        <li><i class="bi bi-caret-right"></i> <a href="" class="footer-list-a">Contact</a></li>
+                        <li><i class="bi bi-caret-right"></i> <a href="../controller/controller.pages.php?page=view.contact" class="footer-list-a">Contact</a></li>
                     </ul>
                 </div>
                 <div class="follow-us">

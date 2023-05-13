@@ -80,3 +80,14 @@ function update_role_user($bdd, $idUser, $newRole){
         "idUser" => $idUser
     ));
 }
+
+function update_visiblity_review($bdd, $idReview, $visibility){
+    $stmt = $bdd->prepare(" UPDATE reviews
+                            SET visibility_review = :visibility
+                            WHERE id_review = :idReview
+                        ");
+    $stmt->execute(array(
+        "idReview" => $idReview,
+        "visibility" => $visibility
+    ));
+}

@@ -37,7 +37,7 @@
                 <tr>
                     <td><?=$book['title_book']?></td>
                     <td>
-                        <button class="initialize"><i class="bi bi-pencil-square"></i></button>
+                    <button class="initialize" onclick="openModalBook(<?=htmlspecialchars(json_encode($book))?>)"><i class="bi bi-pencil-square"></i></button>
                     </td>
                     <td>
                         <button class="initialize style-btn">Supprimer</button>
@@ -48,35 +48,40 @@
         </table>
     </div>
     <br>
-    <div><button class="initialize style-btn" id="btn-modal-add-livres">Ajouter</button></div>
+    <div><button class="initialize style-btn" onclick="openModalBook(null)">Ajouter</button></div>
 </div>
 
 <!-- Modal ADD -->
-<div class="modal-add-livres">
-    <form action="" method="post">
+<div class="modal-book">
+    <form method="post">
         <div>
-            <label for="">Titre</label>
-            <input type="text">
+            <label>Titre</label>
+            <input type="text" id="titleBook">
         </div>
         <div>
             <label for="">Auteur</label>
-            <input type="text">
+            <select name="author" id="">
+                <option value="" disabled selected id='defaultAuthor'>Auteur</option>
+                <?php foreach($namesAuthors as $nameAuthor):?>
+                <option value="<?=$nameAuthor['lastname']?>"><?=$nameAuthor['lastname']?></option>
+                <?php endforeach?>
+            </select>
         </div>
         <div>
-            <label for="">Date de publication</label>
-            <input type="date">
+            <label>Date de publication</label>
+            <input type="date" id="dateBook">
         </div>
         <div>
-            <label for="">Image</label>
-            <input type="file" class="custom-file-input custom-file">
+            <label>Image</label>
+            <input type="file" id="imgBook" class="custom-file-input custom-file">
         </div>
         <div>
-            <label for="">URL du pdf</label>
-            <input type="file" class="custom-file-input custom-file">
+            <label>URL du pdf</label>
+            <input type="file" id="urlBook" class="custom-file-input custom-file">
         </div>
         <div>
-            <label for="">Résumé</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <label>Résumé</label>
+            <textarea id="resumeBook" cols="30" rows="10"></textarea>
         </div>
         <div>
             <input type="submit" value="Annuler" class="initialize style-btn">

@@ -1,7 +1,7 @@
 <?php
 
 function select_all_titles_books($bdd){
-    $stmt = $bdd->prepare(" SELECT id_book, title_book, pdf_book FROM books ORDER BY id_book DESC");
+    $stmt = $bdd->prepare(" SELECT id_book, title_book, pdf_book, publication_date_book, summary_book FROM books ORDER BY id_book DESC");
     $stmt->execute();
     return $stmt->fetchAll();
 }
@@ -247,6 +247,7 @@ function select_reviews($bdd, $idBook){
                             JOIN users
                             ON reviews.id_user = users.id_user
                             WHERE id_book = :idBook
+                            AND visibility_review = 1
                             ORDER BY id_review DESC");
     $stmt->execute(array(
         'idBook' => $idBook,
@@ -304,7 +305,7 @@ function select_all_users($bdd){
 }*/
 
 function select_all_reviews($bdd){
-    $stmt = $bdd->prepare(" SELECT reviews.comment_review as comment, users.name_user as username
+    $stmt = $bdd->prepare(" SELECT reviews.id_review, reviews.comment_review as comment, users.name_user as username, reviews.id_user, reviews.visibility_review as visible
                             FROM reviews
                             JOIN users
                             ON reviews.id_user = users.id_user
@@ -314,7 +315,7 @@ function select_all_reviews($bdd){
 }
 
 function select_all_comments($bdd){
-    $stmt = $bdd->prepare(" SELECT comments.content_comment as comment, users.name_user as username
+    $stmt = $bdd->prepare(" SELECT comments.id_comment, comments.content_comment as comment, users.name_user as username
                             FROM comments
                             JOIN users
                             ON comments.id_user = users.id_user

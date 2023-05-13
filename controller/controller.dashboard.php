@@ -11,6 +11,7 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     $authors = select_all_authors($bdd);
     $genres = select_all_genres($bdd);
     $roles = select_all_roles($bdd);
+    $namesAuthors = select_all_authors_lastname($bdd);
 
     if($_GET['dashboard'] == 'users'){
         include "../view/view.dashboard_users.php";

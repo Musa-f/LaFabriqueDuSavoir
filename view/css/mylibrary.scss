@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.book:hover{
+    cursor: pointer;
+}
+
 .modal-book{
     display: none;
     position: absolute;

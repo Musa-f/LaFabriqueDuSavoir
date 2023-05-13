@@ -39,7 +39,7 @@
                     <td><?=$user['name_user']?></td>
                         <td><?=$user['email_user']?></td>
                     <td>
-                        <select name="" id="" class="initialize" onchange="change_role(this, <?=$user['id_user']?>)">
+                        <select name="" class="initialize" onchange="change_role(this, <?=$user['id_user']?>)">
                             <?php 
                             $defaultValue = $user['name_role'];
                             foreach($roles as $role):?>
@@ -50,7 +50,7 @@
                         </select>
                     </td>
                     <td>
-                        <button class="initialize"><i class="bi bi-person-x"></i></button>
+                        <button class="initialize" onclick="delete_user(this, <?=$user['id_user']?>)"><i class="bi bi-person-x"></i></button>
                     </td>
                 </tr>
                 <?php endforeach ?>
@@ -93,10 +93,10 @@
                     <td class="reviews"><?=$review['comment']?></td>
                     <td><?=$review['username']?></td>
                     <td>
-                        <button class="initialize"><i class="bi bi-eye"></i></button>
+                        <button class="initialize" onclick="display_review(this, <?=$review['id_review']?>)"><i class="bi <?=$review['visible'] ? 'bi-eye': 'bi-eye-slash'?>"></i></button>
                     </td>
                     <td>
-                        <button class="initialize style-btn">Supprimer</button>
+                        <button class="initialize style-btn" onclick="delete_review(this, <?=$review['id_review']?>)">Supprimer</button>
                     </td>
                 </tr>
                 <?php endforeach ?>
@@ -142,7 +142,7 @@
                         <button class="initialize visibility"><i class="bi bi-eye"></i></button>
                     </td>
                     <td>
-                        <button class="initialize style-btn">Supprimer</button>
+                        <button class="initialize style-btn" onclick="delete_comment(this, <?=$comment['id_comment']?>)">Supprimer</button>
                     </td>
                 </tr>
                 <?php endforeach?>
