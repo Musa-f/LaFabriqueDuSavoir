@@ -178,19 +178,13 @@ i {
   font-weight: 600;
 }
 .modal-book form input[type=text], .modal-book form input[type=date], .modal-book form select {
-  width: 50%;
+  width: 350px;
   background-color: white;
   border: 1px solid #2c3638;
   padding: 5px 10px;
 }
-.modal-book form select, .modal-book form select:focus {
-  width: 52.5%;
-  border: none;
-  border: 1px solid #2c3638;
-  outline: none;
-}
 .modal-book form .custom-file {
-  width: 50%;
+  width: 350px;
   position: relative;
   background-color: white;
   border: 1px solid #2c3638;
@@ -205,4 +199,10 @@ i {
   padding: 5px 10px;
   color: white;
   cursor: pointer;
+}
+
+.select2-container--default .select2-selection--multiple {
+  border-radius: 0;
+  width: 370px;
+  border: 1px solid #2c3638;
 }/*# sourceMappingURL=dashboard.css.map */

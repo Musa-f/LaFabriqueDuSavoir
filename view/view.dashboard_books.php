@@ -34,12 +34,12 @@
             </thead>
             <tbody>
                 <?php foreach($books as $book):
-                    $authorBook = select_all_authors_book($bdd, $book['id_book'])[0][0];
+                    $authorBook = select_all_authors_book($bdd, $book['id_book']);
                 ?>
                 <tr>
                     <td><?=$book['title_book']?></td>
                     <td>
-                    <button class="initialize" onclick="openModalBook(<?=htmlspecialchars(json_encode($book))?>, '<?=$authorBook?>')"><i class="bi bi-pencil-square"></i></button>
+                    <button class="initialize" onclick="openModalBook(<?=htmlspecialchars(json_encode($book))?>, '<?=htmlspecialchars(json_encode($authorBook))?>')"><i class="bi bi-pencil-square"></i></button>
                     </td>
                     <td>
                         <button class="initialize style-btn">Supprimer</button>
@@ -62,8 +62,8 @@
         </div>
         <div>
             <label for="">Auteur</label>
-            <select name="author" id="">
-                <option value="" disabled selected id='defaultAuthor'>Auteur</option>
+            <select class="js-example-basic-multiple" name="author" multiple="multiple" id="listAuthors">
+                <!-- <option selected id='defaultAuthor'></option> -->
                 <?php foreach($namesAuthors as $nameAuthor):?>
                 <option value="<?=$nameAuthor['lastname']?>"><?=$nameAuthor['lastname']?></option>
                 <?php endforeach?>
