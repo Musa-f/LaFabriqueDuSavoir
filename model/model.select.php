@@ -117,7 +117,7 @@ function select_user_book($bdd, $idUser, $idBook){
 
 //Element d'un livre
 function select_book_id($bdd, $input){
-    $stmt = $bdd->prepare(" SELECT id_book, title_book, YEAR(publication_date_book) as date, summary_book, cover_book, pdf_book
+    $stmt = $bdd->prepare(" SELECT id_book, title_book, YEAR(publication_date_book) as date, summary_book, pdf_book
                             FROM books
                             WHERE id_book = :id
                             ");

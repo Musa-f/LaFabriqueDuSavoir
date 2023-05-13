@@ -33,11 +33,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($books as $book):?>
+                <?php foreach($books as $book):
+                    $authorBook = select_all_authors_book($bdd, $book['id_book'])[0][0];
+                ?>
                 <tr>
                     <td><?=$book['title_book']?></td>
                     <td>
-                    <button class="initialize" onclick="openModalBook(<?=htmlspecialchars(json_encode($book))?>)"><i class="bi bi-pencil-square"></i></button>
+                    <button class="initialize" onclick="openModalBook(<?=htmlspecialchars(json_encode($book))?>, '<?=$authorBook?>')"><i class="bi bi-pencil-square"></i></button>
                     </td>
                     <td>
                         <button class="initialize style-btn">Supprimer</button>
@@ -51,9 +53,9 @@
     <div><button class="initialize style-btn" onclick="openModalBook(null)">Ajouter</button></div>
 </div>
 
-<!-- Modal ADD -->
+<!-- Modal -->
 <div class="modal-book">
-    <form method="post">
+    <form>
         <div>
             <label>Titre</label>
             <input type="text" id="titleBook">
@@ -84,46 +86,11 @@
             <textarea id="resumeBook" cols="30" rows="10"></textarea>
         </div>
         <div>
-            <input type="submit" value="Annuler" class="initialize style-btn">
-            <input type="submit" value="Valider" class="initialize style-btn">
+            <button type="button" class="initialize style-btn" id="cancelBook">Annuler</button>
+            <button type="button" class="initialize style-btn" id="submitBook">Valider</button>
         </div>
     </form>
 </div>
-
-<!-- Modal EDIT -->
-<!-- <div class="modal-edit-livres">
-    <form action="" method="post">
-        <div>
-            <label for="">Titre</label>
-            <input type="text">
-        </div>
-        <div>
-            <label for="">Auteur</label>
-            <input type="text">
-        </div>
-        <div>
-            <label for="">Date de publication</label>
-            <input type="date">
-        </div>
-        <div>
-            <label for="">Image</label>
-            <input type="file" class="custom-file-input custom-file">
-        </div>
-        <div>
-            <label for="">URL du pdf</label>
-            <input type="file" class="custom-file-input custom-file">
-        </div>
-        <div>
-            <label for="">Résumé</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </div>
-        <div>
-            <input type="submit" value="Annuler" class="initialize style-btn">
-            <input type="submit" value="Valider" class="initialize style-btn">
-        </div>
-    </form>
-</div> -->
-
 
 <!-- ------------------------------ AUTEURS ------------------------------ -->
 <div id="auteurs" class="content-block">

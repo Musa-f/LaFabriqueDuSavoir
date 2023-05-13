@@ -3,27 +3,27 @@ const url = location.href;
 if(url.includes("dashboard=books")){
     let modalBook = document.querySelector("div.modal-book");
 
-    function openModalBook(value){
+    function openModalBook(value, value2){
         modalBook.style.display = "block";
         modalBook.style.position = "fixed";
 
+        let submitBtn = document.getElementById("submitBook");
+        let defaultAuthor = document.getElementById("defaultAuthor");
         let titleBook = document.getElementById("titleBook");
         let dateBook = document.getElementById("dateBook");
         let resumeBook = document.getElementById("resumeBook")
 
         if (value == null) {
             console.log("null");
-        } else if (typeof value === 'object') {
+            submitBtn.addEventListener("click", function(){
+                console.log(titleBook.value);
+                console.log(dateBook.value);
+            })
+        } else {
             titleBook.value = value.title_book;
             dateBook.value = value.publication_date_book;
             resumeBook.textContent = value.summary_book;
-        } else {
-            const book = JSON.parse(value);
-            console.log(book);
-            titleBook.value = book.title_book;
-            dateBook.value = book.publication_date_book;
-            resumeBook.textContent = book.summary_book;
-        
+            defaultAuthor.textContent = value2;
         }
     }
 }

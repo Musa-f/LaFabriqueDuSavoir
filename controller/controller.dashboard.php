@@ -21,4 +21,6 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     }
 
     include "../view/view.dashboard_footer.php";
+}else{
+    echo "Accès interdit";
 }
