@@ -7,7 +7,7 @@ function select_all_titles_books($bdd){
 }
 
 function select_all_authors_book($bdd, $idBook){
-    $stmt = $bdd->prepare(" SELECT authors.last_name_author as lastname
+    $stmt = $bdd->prepare(" SELECT authors.last_name_author as lastname, authors.id_author
                             FROM book_author 
                             JOIN authors ON authors.id_author = book_author.id_author 
                             WHERE book_author.id_book = :idBook

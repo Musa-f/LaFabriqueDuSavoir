@@ -64,8 +64,8 @@
             <label for="">Auteur</label>
             <select class="js-example-basic-multiple" name="author" multiple="multiple" id="listAuthors">
                 <!-- <option selected id='defaultAuthor'></option> -->
-                <?php foreach($namesAuthors as $nameAuthor):?>
-                <option value="<?=$nameAuthor['lastname']?>"><?=$nameAuthor['lastname']?></option>
+                <?php foreach($authors as $author):?>
+                <option value="<?=$author['id_author']?>"><?=$author['last_name_author']?></option>
                 <?php endforeach?>
             </select>
         </div>
@@ -75,11 +75,11 @@
         </div>
         <div>
             <label>Image</label>
-            <input type="file" id="imgBook" class="custom-file-input custom-file">
+            <input type="file" id="imgBook" class="custom-file-input custom-file" accept="image/png, image/jpeg">
         </div>
         <div>
             <label>URL du pdf</label>
-            <input type="file" id="urlBook" class="custom-file-input custom-file">
+            <input type="file" id="urlBook" class="custom-file-input custom-file" accept=".pdf">
         </div>
         <div>
             <label>Résumé</label>
