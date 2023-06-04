@@ -20,6 +20,13 @@ body {
   align-items: stretch;
   margin-bottom: 3%;
 }
+.bloc1 h2 {
+  font-size: 20px;
+}
+.bloc1 .writtenby {
+  font-style: italic;
+  font-weight: 400;
+}
 
 .bloc1 img {
   max-width: 100%;
@@ -128,4 +135,14 @@ body {
   background-color: white;
   border: 1px solid #2c3638;
   padding: 5px 10px;
+}
+
+.cover-book {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.note i {
+  color: #b17f4a;
 }/*# sourceMappingURL=bookdetails.css.map */

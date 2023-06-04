@@ -1,7 +1,10 @@
 <div class="info-book">
     <div class="bloc1">
         <div>
-            <img src="https://fastly.picsum.photos/id/1082/200/300.jpg?hmac=AaFCHuEst4e0Oy553UCibOtysEKByBAl3XsTR8n4e1c" alt="">
+            <div class="cover-book">
+                <img src="../assets/uploads/coverbook_3.png" alt="">
+                <!-- <img src="https://fastly.picsum.photos/id/1082/200/300.jpg?hmac=AaFCHuEst4e0Oy553UCibOtysEKByBAl3XsTR8n4e1c" alt=""> -->
+            </div>
                 <?php
                     if($pdfExist){
                         echo "
@@ -16,12 +19,14 @@
         </div>
         <div>
             <h1><?=$book['title_book']?></h1>
-            <h2>Auteur:
+            <h2><i class="bi bi-vector-pen"></i> <span class="writtenby">Ecrit par:</span>
                 <br>
-                <?php foreach($author as $author){
-                    echo $author['firstname']." ";
-                    echo $author['lastname'];
-                    echo "<br>";
+                <?php for($i=0;$i<sizeof($author);$i++){
+                    echo $author[$i]['firstname']." ";
+                    echo $author[$i]['lastname'];
+                    if(!empty($author[$i+1])){
+                        echo ", ";
+                    }
                 }
                 ?>
             </h2>

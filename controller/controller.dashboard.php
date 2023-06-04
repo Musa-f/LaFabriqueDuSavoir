@@ -12,31 +12,27 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     $genres = select_all_genres_names($bdd);
     $genres = select_all_genres($bdd);
     $roles = select_all_roles($bdd);
-    $arrayIdBooks = [];
-    foreach($books as $book){
-        $arrayIdBooks[] .= $book["id_book"];
-    }
-    $maxIdBook = max($arrayIdBooks)+1;
-
 
     if(isset($_POST['submit'])){ 
         $idAuthorBook = $_POST['idUser'];
         $titleBook = $_POST['titleBook'];
         $dateBook = $_POST['dateBook'];
         $resumeBook = $_POST['resumeBook'];
-        $numPages = $_POST['numPages'];
+        //$numPages = $_POST['numPages'];
         $arrayAuthorsBook = json_decode($_POST['arrayAuthorsBook']);
         $arrayGenresBook = json_decode($_POST['arrayGenresBook']);
         $ids_img = select_all_id_img($bdd);
 
+        $maxIdBook = insert_book($bdd, $titleBook, $dateBook, $resumeBook);
+
         if(isset($_FILES['dataPdf'])){
-            $urlBook = strtolower($_FILES['dataPdf']);
-            $pdf_destination = "../assets/pdf/{$maxIdBook}_{$urlBook['name']}";
+            $urlBook = $_FILES['dataPdf'];
+            $filepdfname = $maxIdBook."_".strtolower($urlBook['name']);
+            $pdf_destination = "../assets/pdf/$filepdfname";
             move_uploaded_file($urlBook['tmp_name'], $pdf_destination);
         }
-        
-        //insert book into the db 
-        insert_book($bdd, $titleBook, $dateBook, $resumeBook, $pdfBook, 100);
+
+        update_pdf_book($bdd, $maxIdBook, $filepdfname);
         
         //insert each author assigned to a book
         if(isset($arrayAuthorsBook)){
@@ -47,7 +43,7 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
         
         if(isset($arrayGenresBook)){
             foreach($arrayGenresBook as $genresBook){
-                insert_genre_book($bdd, $maxIdBook, $$genresBook);
+                insert_genre_book($bdd, $maxIdBook, $genresBook);
             }
         }
 
@@ -67,7 +63,7 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
             $pdf_destination = "../assets/uploads/coverbook_$last_id_img";
             move_uploaded_file($imgBook['tmp_name'], $pdf_destination.".png");
 
-            $id_image = "coverbook_".$last_id_img;
+            $id_image = "coverbook_".$last_id_img.".png";
             $name_image = $imgBook['name'];
             $size_image = $imgBook['size'];
             insert_image($bdd, $id_image, $name_image, $size_image);

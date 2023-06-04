@@ -91,3 +91,14 @@ function update_visiblity_review($bdd, $idReview, $visibility){
         "visibility" => $visibility
     ));
 }
+
+function update_pdf_book($bdd, $idBook, $pdf){
+    $stmt = $bdd->prepare(" UPDATE books
+                            SET pdf_book = :pdf
+                            WHERE id_book = :idBook
+                        ");
+    $stmt->execute(array(
+        "pdf" => $pdf,
+        "idBook" => $idBook
+    ));
+}

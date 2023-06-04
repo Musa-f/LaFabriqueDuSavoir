@@ -19,6 +19,14 @@ body{
     display: flex;
     align-items: stretch;
     margin-bottom: 3%;
+
+    h2{
+        font-size: 20px;
+    }
+    .writtenby{
+        font-style: italic;
+        font-weight: 400;
+    }
 }
   
 .bloc1 img {
@@ -143,3 +151,12 @@ body{
     }
 }
 
+.cover-book{
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.note i {
+    color: #b17f4a;
+}

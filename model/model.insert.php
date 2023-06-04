@@ -74,7 +74,7 @@ function insert_cover_image($bdd, $id_image, $id_user, $id_book){
     $stmt->execute(array(
         "idUser" => $id_user,
         "idImg" => $id_image,
-        "idBookt" => $id_book,
+        "idBook" => $id_book,
     ));
 }
 
@@ -90,17 +90,20 @@ function insert_post($bdd, $titlePost, $contentPost, $idUser){
     ));
 }
 
-function insert_book($bdd, $titleBook, $dateBook, $resumeBook, $pdfBook, $numPages){
-    $stmt = $bdd->prepare(" INSERT INTO books(title_book, publication_date_book, summary_book, pdf_book, pages_book) VALUES
-                            (:titleBook, :dateBook, :summaryBook, :pdfBook, :pagesBook)
+function insert_book($bdd, $titleBook, $dateBook, $resumeBook){
+    $stmt = $bdd->prepare(" INSERT INTO books(title_book, publication_date_book, summary_book) VALUES
+                            (:titleBook, :dateBook, :summaryBook);
                         ");
     $stmt->execute(array(
         "titleBook" => $titleBook,
         "dateBook" => $dateBook,
-        "pdfBook" => $pdfBook,
         "summaryBook" => $resumeBook,
-        "pages_book" => $numPages
     ));
+
+    $maxIdStmt = $bdd->prepare("SELECT LAST_INSERT_ID() AS maxId");
+    $maxIdStmt->execute();
+    $row = $maxIdStmt->fetch(PDO::FETCH_ASSOC);
+    return $row['maxId'];
 }
 
 function insert_author_book($bdd, $idBook, $idAuthor){
@@ -122,6 +125,7 @@ function insert_genre_book($bdd, $idBook, $idGenre){
         "idGenre" => $idGenre
     ));
 }
+
 
 
 ?>
