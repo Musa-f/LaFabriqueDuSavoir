@@ -213,7 +213,7 @@ function select_all_authors_lastname($bdd){
 }
 
 function select_all_genres_names($bdd){
-    $stmt = $bdd->prepare(" SELECT name_genre FROM genres");
+    $stmt = $bdd->prepare(" SELECT id_genre, name_genre FROM genres");
     $stmt->execute();
     return $stmt->fetchAll();
 }

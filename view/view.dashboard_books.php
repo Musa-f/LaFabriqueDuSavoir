@@ -35,11 +35,12 @@
             <tbody>
                 <?php foreach($books as $book):
                     $authorBook = select_all_authors_book($bdd, $book['id_book']);
+                    $genreBook = select_genre_id($bdd, $book['id_book']);
                 ?>
                 <tr>
                     <td><?=$book['title_book']?></td>
                     <td>
-                    <button class="initialize" onclick="openModalBook(<?=htmlspecialchars(json_encode($book))?>, '<?=htmlspecialchars(json_encode($authorBook))?>')"><i class="bi bi-pencil-square"></i></button>
+                    <button class="initialize" onclick="openModalBook(<?=htmlspecialchars(json_encode($book))?>, '<?=htmlspecialchars(json_encode($authorBook))?>', '<?=htmlspecialchars(json_encode($genreBook))?>', <?=$_SESSION['user']['id_user']?>)"><i class="bi bi-pencil-square"></i></button>
                     </td>
                     <td>
                         <button class="initialize style-btn">Supprimer</button>
@@ -50,23 +51,30 @@
         </table>
     </div>
     <br>
-    <div><button class="initialize style-btn" onclick="openModalBook(null)">Ajouter</button></div>
+    <div><button class="initialize style-btn" onclick="openModalBook(null, null, <?=$_SESSION['user']['id_user']?>)">Ajouter</button></div>
 </div>
 
 <!-- Modal -->
 <div class="modal-book">
-    <form>
+    <form enctype="multipart/form-data" id="modalOfBook">
         <div>
             <label>Titre</label>
             <input type="text" id="titleBook">
         </div>
         <div>
-            <label for="">Auteur</label>
+            <label>Auteurs</label>
             <select class="js-example-basic-multiple" name="author" multiple="multiple" id="listAuthors">
-                <!-- <option selected id='defaultAuthor'></option> -->
                 <?php foreach($authors as $author):?>
                 <option value="<?=$author['id_author']?>"><?=$author['last_name_author']?></option>
                 <?php endforeach?>
+            </select>
+        </div>
+        <div>
+            <label>Genres</label>
+            <select class="js-example-basic-multiple" name="genres" multiple="multiple" id="listGenres">
+                    <?php foreach($genres as $genre):?>
+                    <option value="<?=$genre['id_genre']?>"><?=$genre['name_genre']?></option>
+                    <?php endforeach?>
             </select>
         </div>
         <div>
@@ -85,7 +93,7 @@
             <label>Résumé</label>
             <textarea id="resumeBook" cols="30" rows="10"></textarea>
         </div>
-        <div>
+        <div class="buttons-sections">
             <button type="button" class="initialize style-btn" id="cancelBook">Annuler</button>
             <button type="button" class="initialize style-btn" id="submitBook">Valider</button>
         </div>

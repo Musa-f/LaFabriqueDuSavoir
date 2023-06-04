@@ -12,7 +12,7 @@
 
     <body>
 
-        <button class="btn" onclick="previousPage()" class="p-2">Retour</button>
+        <button class="btn" onclick="previousPage()" ><p class="h5 mt-3">Retour</p></button>
 
         <span class="page-info m-3">
             Page <span id="page-num"></span> sur <span id="page-count"></span>
@@ -35,7 +35,7 @@
         <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
         <script>
             function previousPage(){
-                window.back();
+                history.back();
             }
         </script>
     </body>

@@ -67,6 +67,17 @@ function insert_post_image($bdd, $id_image, $id_user, $id_post){
     ));
 }
 
+function insert_cover_image($bdd, $id_image, $id_user, $id_book){
+    $stmt = $bdd->prepare(" INSERT INTO possess_images(id_user, id_image, id_book) VALUES
+                            (:idUser, :idImg, :idBook);
+                        ");
+    $stmt->execute(array(
+        "idUser" => $id_user,
+        "idImg" => $id_image,
+        "idBookt" => $id_book,
+    ));
+}
+
 function insert_post($bdd, $titlePost, $contentPost, $idUser){
     $stmt = $bdd->prepare(" INSERT INTO posts(title_post, content_post, id_user) VALUES
                             (:titlePost, :contentPost, :idUser)
@@ -78,5 +89,39 @@ function insert_post($bdd, $titlePost, $contentPost, $idUser){
         "idUser" => $idUser
     ));
 }
+
+function insert_book($bdd, $titleBook, $dateBook, $resumeBook, $pdfBook, $numPages){
+    $stmt = $bdd->prepare(" INSERT INTO books(title_book, publication_date_book, summary_book, pdf_book, pages_book) VALUES
+                            (:titleBook, :dateBook, :summaryBook, :pdfBook, :pagesBook)
+                        ");
+    $stmt->execute(array(
+        "titleBook" => $titleBook,
+        "dateBook" => $dateBook,
+        "pdfBook" => $pdfBook,
+        "summaryBook" => $resumeBook,
+        "pages_book" => $numPages
+    ));
+}
+
+function insert_author_book($bdd, $idBook, $idAuthor){
+    $stmt = $bdd->prepare(" INSERT INTO book_author(id_book, id_author) VALUES
+                            (:idBook, :idAuthor)
+                        ");
+    $stmt->execute(array(
+        "idBook" => $idBook,
+        "idAuthor" => $idAuthor
+    ));
+}
+
+function insert_genre_book($bdd, $idBook, $idGenre){
+    $stmt = $bdd->prepare(" INSERT INTO book_genre(id_book, id_genre) VALUES 
+                            (:idBook, :idGenre)
+                        ");
+    $stmt->execute(array(
+        "idBook" => $idBook,
+        "idGenre" => $idGenre
+    ));
+}
+
 
 ?>

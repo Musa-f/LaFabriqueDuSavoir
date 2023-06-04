@@ -47,7 +47,6 @@ if(isset($_POST['submit'])){
         
                 if(in_array($extension, $extensions) && $file_size <= $maxSize){
                     $renamed_url_img = 'post_'.($last_id_img+1).'.'.$extension;
-                    echo $renamed_url_img;
                     move_uploaded_file($file_tmp_name, '../assets/uploads/'.$renamed_url_img);
         
                     //insérer la ligne dans la table images en prenant le dernier id+1

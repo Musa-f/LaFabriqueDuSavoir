@@ -88,3 +88,4 @@ if(isset($_POST['idReview']) && isset($_POST['visibility'])){
     $visibility = $_POST['visibility'];
     update_visiblity_review($bdd, $idReview, $visibility);
 }
+

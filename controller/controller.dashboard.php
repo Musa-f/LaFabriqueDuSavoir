@@ -9,9 +9,72 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     $reviews = select_all_reviews($bdd);
     $books = select_all_titles_books($bdd);
     $authors = select_all_authors($bdd);
+    $genres = select_all_genres_names($bdd);
     $genres = select_all_genres($bdd);
     $roles = select_all_roles($bdd);
-    //$namesAuthors = select_all_authors_lastname($bdd);
+    $arrayIdBooks = [];
+    foreach($books as $book){
+        $arrayIdBooks[] .= $book["id_book"];
+    }
+    $maxIdBook = max($arrayIdBooks)+1;
+
+
+    if(isset($_POST['submit'])){ 
+        $idAuthorBook = $_POST['idUser'];
+        $titleBook = $_POST['titleBook'];
+        $dateBook = $_POST['dateBook'];
+        $resumeBook = $_POST['resumeBook'];
+        $numPages = $_POST['numPages'];
+        $arrayAuthorsBook = json_decode($_POST['arrayAuthorsBook']);
+        $arrayGenresBook = json_decode($_POST['arrayGenresBook']);
+        $ids_img = select_all_id_img($bdd);
+
+        if(isset($_FILES['dataPdf'])){
+            $urlBook = strtolower($_FILES['dataPdf']);
+            $pdf_destination = "../assets/pdf/{$maxIdBook}_{$urlBook['name']}";
+            move_uploaded_file($urlBook['tmp_name'], $pdf_destination);
+        }
+        
+        //insert book into the db 
+        insert_book($bdd, $titleBook, $dateBook, $resumeBook, $pdfBook, 100);
+        
+        //insert each author assigned to a book
+        if(isset($arrayAuthorsBook)){
+            foreach($arrayAuthorsBook as $authorBook){
+                insert_author_book($bdd, $maxIdBook, $authorBook);
+            }
+        }
+        
+        if(isset($arrayGenresBook)){
+            foreach($arrayGenresBook as $genresBook){
+                insert_genre_book($bdd, $maxIdBook, $$genresBook);
+            }
+        }
+
+        //insert image file and in the db
+        if(!empty($_FILES['dataImg'])){
+            $array_ids_img = [];
+            foreach($ids_img as $id_img){
+                $parts = explode('_', $id_img[0]);
+                $last_part = end($parts);
+                $inner_parts = explode('.', $last_part);
+                $result = array_shift($inner_parts);
+                $array_ids_img[] = $result;
+            }
+            $last_id_img = max($array_ids_img)+1;
+
+            $imgBook = $_FILES['dataImg'];
+            $pdf_destination = "../assets/uploads/coverbook_$last_id_img";
+            move_uploaded_file($imgBook['tmp_name'], $pdf_destination.".png");
+
+            $id_image = "coverbook_".$last_id_img;
+            $name_image = $imgBook['name'];
+            $size_image = $imgBook['size'];
+            insert_image($bdd, $id_image, $name_image, $size_image);
+
+            insert_cover_image($bdd, $id_image, $idAuthorBook, $maxIdBook);
+        }
+    }
 
     if($_GET['dashboard'] == 'users'){
         include "../view/view.dashboard_users.php";
@@ -22,25 +85,7 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
 
     include "../view/view.dashboard_footer.php";
 
-    if(isset($_POST['formData'])){
-        $titleBook = $_POST['titleBook'];
-        $dateBook = $_POST['dateBook'];
-        $arrayAuthorsBook = $_POST['arrayAuthorsBook'];
-        $resumeBook = $_POST['resumeBook'];
-        $imgBook = $_FILES['imgBook'];
-        $urlBook = $_FILES['urlBook'];
-
-        //enregistrer le pdf dans el dossier pdf en le renommant avec id_nom-livre
-
-        //insérer une ligne dans la table book comprenant le titre,date,resume, pdfnom, page??
-
-        foreach($arrayAuthorsBook as $authorBook){
-            //enregistrer une ligne de type INSERT pour chaque id authorBook
-        }
-
-        //enregistrer l'image dans le dossier ainsi que dans la table
-        
-    }
+    
 }else{
     echo "Accès interdit";
 }
