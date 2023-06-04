@@ -52,11 +52,11 @@ function display_review(e, idReview){
     if(icon.classList.contains('bi-eye')){
         icon.classList.remove('bi-eye');
         icon.classList.add('bi-eye-slash');
-        statut = 1;
+        statut = 0;
     }else{
         icon.classList.remove('bi-eye-slash');
         icon.classList.add('bi-eye');
-        statut = 0;
+        statut = 1;
     }
     $.ajax({  
         type: "POST",  
