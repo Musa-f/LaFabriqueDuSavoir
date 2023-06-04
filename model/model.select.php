@@ -344,4 +344,23 @@ function select_max_id_post($bdd){
     return $stmt->fetch();
 }
 
+function select_exist_book_cover($bdd, $idBook){
+    $stmt = $bdd->prepare("SELECT COUNT(*) FROM possess_images WHERE id_book = :idBook ");
+    $stmt->execute(array(
+        "idBook" => $idBook
+    ));
+    $stmt = $stmt->fetchColumn();
+    return $stmt>0;
+}
+
+function select_cover_from_book($bdd, $idBook){
+    $stmt = $bdd->prepare(" SELECT id_image
+                            FROM possess_images
+                            WHERE id_book = :idBook
+                        ");
+    $stmt->execute(array(
+        "idBook" => $idBook
+    ));
+    return $stmt->fetch();
+}
 ?>

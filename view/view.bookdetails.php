@@ -2,8 +2,15 @@
     <div class="bloc1">
         <div>
             <div class="cover-book">
-                <img src="../assets/uploads/coverbook_3.png" alt="">
-                <!-- <img src="https://fastly.picsum.photos/id/1082/200/300.jpg?hmac=AaFCHuEst4e0Oy553UCibOtysEKByBAl3XsTR8n4e1c" alt=""> -->
+            <?php
+                $existCover = select_exist_book_cover($bdd, $id);
+                if($existCover){
+                    $cover = select_cover_from_book($bdd, $id)[0];
+                    echo "<img src='../assets/uploads/{$cover}'>";
+                }else{
+                    echo "<img src='https://fastly.picsum.photos/id/1082/200/300.jpg?hmac=AaFCHuEst4e0Oy553UCibOtysEKByBAl3XsTR8n4e1c'>";
+                }
+                ?>
             </div>
                 <?php
                     if($pdfExist){
