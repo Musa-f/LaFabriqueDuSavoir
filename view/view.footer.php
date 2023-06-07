@@ -48,7 +48,7 @@
                             ?>" ;
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="/la_fabrique_du_savoir/view/js/footer.js"></script>
+        <script src="<?=$path?>/view/js/footer.js"></script>
         <?php echo isset($script) ? $script : ''; ?>
 
     </body>

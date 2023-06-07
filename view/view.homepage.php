@@ -3,7 +3,7 @@
             <input name="title" type="text" placeholder="Le petit prince..." class="initialize style-input">
         </div>
         <div>
-            <img src="/la_fabrique_du_savoir/assets/img/l-separator.svg" alt="">
+            <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
         </div>
         <div>
             <select name="author" id="" class="initialize style-input">
@@ -66,7 +66,7 @@
     </div>
 
 <?php
-    $script = "<script src='/la_fabrique_du_savoir/view/js/books.js'></script>
-                <script src='/la_fabrique_du_savoir/view/js/shelf.js'></script>";
+    $script = "<script src='{$path}/view/js/books.js'></script>
+                <script src='{$path}/view/js/shelf.js'></script>";
 ?>
 

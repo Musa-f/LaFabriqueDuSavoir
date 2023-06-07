@@ -10,11 +10,10 @@
     </head>
 
     <body>
-
-        <button class="btn" onclick="previousPage()" ><p class="h5 mt-3">Retour</p></button>
+        <button class="btn" onclick="previousPage()"><p class="h5 mt-3">Retour</p></button>
 
         <span class="page-info m-3">
-            Page <span id="page-num"></span> sur <span id="page-count"></span>
+            Page <input class="inputCurrentPage" id="page-num"> sur <span id="page-count"></span>
         </span>
         
         <div class="book">

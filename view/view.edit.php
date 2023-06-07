@@ -1,5 +1,5 @@
 <div class="title">
-    <img src="/la_fabrique_du_savoir/assets/img/l-separator.svg" alt="">
+    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
     <?php if($id_post == 0):?>
         <h2>Nouveau article</h2>
     <?php else:?>
@@ -20,7 +20,7 @@
     </div>
 
     <textarea name="content" cols="30" rows="10" class="editor">
-        <?= $id_post > 0 ? $post['content_post'] : '' ?>
+        <?= $id_post > 0 ? nl2br($post['content_post']) : '' ?>
     </textarea>
 
     <div class="buttons-edit">
@@ -30,6 +30,6 @@
 </form>
 
 <?php
-    $script = "<script src='/la_fabrique_du_savoir/view/ckeditor/build/ckeditor.js'></script>
-                <script src='/la_fabrique_du_savoir/view/js/editor.js'></script>";
+    $script = "<script src='{$path}/view/ckeditor/build/ckeditor.js'></script>
+                <script src='{$path}/view/js/editor.js'></script>";
 ?>

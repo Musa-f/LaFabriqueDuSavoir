@@ -52,3 +52,18 @@ canvas{
 .custom-progress{
     background: #d5d1c3 !important;
 }
+
+.inputCurrentPage{
+    color: black;
+    width: 40px;
+    margin: 0 10px;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-align: center;
+    border-radius: 5px;
+}
+.inputCurrentPage:focus, .inputCurrentPage:active{
+    outline: none;
+    border: none;
+}

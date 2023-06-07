@@ -39,41 +39,37 @@ if(url.includes("dashboard=books")){
 
                 let filePdf = urlBook.files[0];
                 let fileImg = imgBook.files[0];
-                let numPages;
                 
                 if(filePdf != null && titleBook.value != null && dateBook.value != null){
                     let fileUrl = URL.createObjectURL(filePdf);
                     pdfjsLib.getDocument({ url: fileUrl }).promise.then(function (doc) {
-                        numPages = doc.numPages;
-                    })
-                    let formData = new FormData();
-                    formData.append("submit", submitBtn);
-                    formData.append("idUser", idUser);
-                    formData.append("numPages", numPages);
-                    formData.append("titleBook", titleBook.value);
-                    formData.append("dateBook", dateBook.value);
-                    formData.append("arrayAuthorsBook", JSON.stringify(arrayAuthors));
-                    formData.append('arrayGenresBook', JSON.stringify(arrayGenres));
-                    formData.append("dataImg", fileImg);
-                    formData.append("dataPdf", filePdf);
-                    formData.append("resumeBook", resumeBook.value);
+                        let numPages = doc.numPages;
 
-                    formData.forEach(function(value, key) {
-                        console.log(value);
-                    })
+                        let formData = new FormData();
+                        formData.append("submit", submitBtn);
+                        formData.append("idUser", idUser);
+                        formData.append("numPages", numPages);
+                        formData.append("titleBook", titleBook.value);
+                        formData.append("dateBook", dateBook.value);
+                        formData.append("arrayAuthorsBook", JSON.stringify(arrayAuthors));
+                        formData.append('arrayGenresBook', JSON.stringify(arrayGenres));
+                        formData.append("dataImg", fileImg);
+                        formData.append("dataPdf", filePdf);
+                        formData.append("resumeBook", resumeBook.value);
 
-                   $.ajax({  
-                        type: "POST",  
-                        url: "../controller/controller.dashboard.php", 
-                        data: formData,
-                        contentType : false,
-                        processData : false,
-                        success: function(response) {
-                            console.log(response);
-                        },
-                    });
+                        $.ajax({  
+                            type: "POST",  
+                            url: "../controller/controller.dashboard.php", 
+                            data: formData,
+                            contentType : false,
+                            processData : false,
+                            success: function(response) {
+                                console.log(response);
+                            },
+                        });
+                    })
+                    
                 }else{
-                    console.log("ok");
                     let msgError = document.createElement("div");
                     msgError.classList.add('errorMsg');
                     msgError.textContent = "Un livre doit contenir au moins un titre, un pdf et une date.";

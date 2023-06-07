@@ -92,13 +92,34 @@ function update_visiblity_review($bdd, $idReview, $visibility){
     ));
 }
 
-function update_pdf_book($bdd, $idBook, $pdf){
+function update_pdf_book($bdd, $idBook, $pdf, $numPages){
     $stmt = $bdd->prepare(" UPDATE books
-                            SET pdf_book = :pdf
+                            SET pdf_book = :pdf, pages_book = :numPages
                             WHERE id_book = :idBook
                         ");
     $stmt->execute(array(
         "pdf" => $pdf,
-        "idBook" => $idBook
+        "idBook" => $idBook,
+        "numPages" => $numPages
+    ));
+}
+
+function update_title_post($bdd, $id, $title){
+    $stmt = $bdd->prepare(" UPDATE posts
+                            SET title_post = :titlePost
+                            WHERE id_post = :idPost");
+    $stmt->execute(array(
+        "titlePost" => $title,
+        "idPost" => $id
+    ));
+}
+
+function update_content_post($bdd, $id, $content){
+    $stmt = $bdd->prepare(" UPDATE posts
+                            SET content_post = :contentPost
+                            WHERE id_post = :idPost");
+    $stmt->execute(array(
+        "contentPost" => $content,
+        "idPost" => $id
     ));
 }

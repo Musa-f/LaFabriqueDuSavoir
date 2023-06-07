@@ -258,7 +258,8 @@ function select_reviews($bdd, $idBook){
 function select_moy_review_book($bdd, $idBook){
     $stmt = $bdd->prepare(" SELECT SUM(rating_review) / COUNT(rating_review) as moy
                             FROM reviews
-                            WHERE id_book = :idBook");
+                            WHERE id_book = :idBook
+                            AND visibility_review = 1");
     $stmt->execute(array(
         "idBook" => $idBook,
     ));

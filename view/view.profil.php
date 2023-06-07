@@ -1,5 +1,5 @@
 <div class="title">
-    <img src="/la_fabrique_du_savoir/assets/img/l-separator.svg" alt="">
+    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
     <h2>Profil</h2>
 </div>
 
@@ -38,5 +38,5 @@
 
 
 <?php
-    $script = "<script src='/la_fabrique_du_savoir/view/js/useredition.js'></script>"
+    $script = "<script src='{$path}/view/js/useredition.js'></script>"
 ?>

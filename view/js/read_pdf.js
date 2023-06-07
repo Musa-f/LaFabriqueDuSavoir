@@ -46,9 +46,23 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Display the current page
-            document.querySelector('#page-num').textContent = num;
+            let inputNumPage = document.querySelector('#page-num');
+            inputNumPage.value = num;
             progressBar.textContent = Math.round((num / pdfDoc.numPages) * 100) + '%';
             progressBar.style.width = Math.round((num / pdfDoc.numPages) * 100) + '%';
+
+            inputNumPage.addEventListener('keydown', function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault(); 
+                    let enteredPageNum = parseInt(inputNumPage.value);
+
+                    if (enteredPageNum >= 1 && enteredPageNum <= pdfDoc.numPages) {
+                        renderPage(enteredPageNum);
+                    }else {
+                        renderPage(1);
+                    }
+                }
+            })
         });
 
         // Ajax request if user connected

@@ -2,6 +2,8 @@
 session_start();
 include 'controller.model_links.php';
 
+$path = "/la_fabrique_du_savoir";
+
 //Scans a directory for all files and directories inside it and returns an array of their names
 $pagesController = scandir("../controller/");
 $pagesView = scandir("../view/");

@@ -68,8 +68,8 @@ function insert_post_image($bdd, $id_image, $id_user, $id_post){
 }
 
 function insert_cover_image($bdd, $id_image, $id_user, $id_book){
-    $stmt = $bdd->prepare(" INSERT INTO possess_images(id_user, id_image, id_book) VALUES
-                            (:idUser, :idImg, :idBook);
+    $stmt = $bdd->prepare(" INSERT INTO possess_images(id_image, id_user, id_book) VALUES
+                            (:idImg, :idUser, :idBook);
                         ");
     $stmt->execute(array(
         "idUser" => $id_user,

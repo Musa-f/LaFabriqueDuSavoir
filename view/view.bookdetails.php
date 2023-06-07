@@ -135,8 +135,8 @@
 </div>
 
 <?php
-    $script =   "<script src='/la_fabrique_du_savoir/view/js/ratings.js'></script>
-                <script src='/la_fabrique_du_savoir/view/js/addbook.js'></script>
+    $script =   "<script src='{$path}/view/js/ratings.js'></script>
+                <script src='{$path}/view/js/addbook.js'></script>
                 ";
 ?>
 

@@ -24,7 +24,15 @@ if(isset($_POST['submit'])){
 
     //Si le post est existant
     if($id_post > 0){
-        echo "post existe déjà";
+        if(!empty($_POST['title'])){
+            update_title_post($bdd, $id_post, $_POST['title']);
+        }
+        if(!empty($_FILES['file'])){
+            
+        }
+        if(!empty($_POST['content'])){
+            update_content_post($bdd, $id_post, $_POST['content']);
+        }
     }
 
     //Si nouveau post

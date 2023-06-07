@@ -1,6 +1,6 @@
 
 <div class="title">
-    <img src="/la_fabrique_du_savoir/assets/img/l-separator.svg" alt="">
+    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
     <h2>Qui sommes-nous ?</h2>
 </div>
 

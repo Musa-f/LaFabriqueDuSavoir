@@ -2,6 +2,8 @@
 session_start();
 include 'controller.model_links.php';
 
+$path = "/la_fabrique_du_savoir";
+
 if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     include "../view/view.dashboard_header.php";
     $users = select_all_users($bdd);
@@ -18,7 +20,7 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
         $titleBook = $_POST['titleBook'];
         $dateBook = $_POST['dateBook'];
         $resumeBook = $_POST['resumeBook'];
-        //$numPages = $_POST['numPages'];
+        $numPages = $_POST['numPages'];
         $arrayAuthorsBook = json_decode($_POST['arrayAuthorsBook']);
         $arrayGenresBook = json_decode($_POST['arrayGenresBook']);
         $ids_img = select_all_id_img($bdd);
@@ -27,12 +29,12 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
 
         if(isset($_FILES['dataPdf'])){
             $urlBook = $_FILES['dataPdf'];
-            $filepdfname = $maxIdBook."_".strtolower($urlBook['name']);
+            $renamePdf = str_replace(" ", "_", strtolower($titleBook));
+            $filepdfname = $maxIdBook."_".$renamePdf;
             $pdf_destination = "../assets/pdf/$filepdfname";
             move_uploaded_file($urlBook['tmp_name'], $pdf_destination);
+            update_pdf_book($bdd, $maxIdBook, $renamePdf, $numPages);
         }
-
-        update_pdf_book($bdd, $maxIdBook, $filepdfname);
         
         //insert each author assigned to a book
         if(isset($arrayAuthorsBook)){
