@@ -22,7 +22,7 @@ $file_size;
 
 if(isset($_POST['submit'])){
 
-    //Si le post est existant
+    //If post exist
     if($id_post > 0){
         if(!empty($_POST['title'])){
             update_title_post($bdd, $id_post, $_POST['title']);
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
         }
     }
 
-    //Si nouveau post
+    //If is a new post 
     if($id_post == 0){
         if(isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])){
             $title = $_POST['title'];
@@ -57,7 +57,6 @@ if(isset($_POST['submit'])){
                     $renamed_url_img = 'post_'.($last_id_img+1).'.'.$extension;
                     move_uploaded_file($file_tmp_name, '../assets/uploads/'.$renamed_url_img);
         
-                    //insérer la ligne dans la table images en prenant le dernier id+1
                     $id_image = $renamed_url_img;
                     insert_image($bdd, $id_image, $file_name, $file_size);
                 }else{
@@ -66,13 +65,10 @@ if(isset($_POST['submit'])){
             }else{
                 $id_image = "post_1.jpg";
             }
-        
             insert_post_image($bdd, $id_image, $id_user, $last_id_post);
-            
         }else{
             $errors[] = "Un article doit contenir un titre et un message.";
         }
-    
         if(!empty($errors)){
             var_dump($errors);
         }

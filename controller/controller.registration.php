@@ -10,12 +10,12 @@ if(isset($_SESSION['user'])){
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
         $pswd = htmlspecialchars($_POST['pswd']);
-
             
         if(empty($name) || empty($email) || empty($pswd)){
             $error1 = "Veuillez remplir tous les champs.";
             $errors[] = $error1;
         }else{
+            //Check the format
             if(strlen($name)<5){
                 $error2 = "Le nom d'utilisateur doit contenir au moins 5 caractères.";
                 $errors[] = $error2;
@@ -51,5 +51,3 @@ if(isset($_SESSION['user'])){
         }
     }
 }
-
-?>

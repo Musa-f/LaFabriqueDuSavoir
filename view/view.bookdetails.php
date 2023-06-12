@@ -113,11 +113,9 @@
         <div>
             <label>Note</label>
             <div class="note">
-                <i class="bi bi-star rating" onclick="rating(this)" id="1"></i>
-                <i class="bi bi-star rating" onclick="rating(this)" id="2"></i>
-                <i class="bi bi-star rating" onclick="rating(this)" id="3"></i>
-                <i class="bi bi-star rating" onclick="rating(this)" id="4"></i>
-                <i class="bi bi-star rating" onclick="rating(this)" id="5"></i>
+                <?php for($i=1;$i<=5;$i++):?>
+                    <i class="bi bi-star rating" onclick="rating(this)" id="<?=$i?>"></i>
+                <?php endfor?>
             </div>
         </div>
         <div>

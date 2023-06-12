@@ -1,11 +1,10 @@
-
 <div class="title">
-    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
+    <img src="/assets/img/l-separator.svg" alt="">
     <h2>Qui sommes-nous ?</h2>
 </div>
 
 <div class="center">
-    Nous sommes une jeune entreprise fondée par une étudiante passionnée de livres et d'innovation technologique. Notre mission est de rendre la lecture accessible à tous, où que vous soyez et à tout moment. Le site a été conçu pour un projet d'étude, avec l'objectif de rendre la lecture accessible à tous.
+    Nous sommes une jeune entreprise fondée par une étudiante passionnée de livres et de programmation. Le site a été conçu pour un projet d'étude, rendre la lecture accessible à tous, où que vous soyez et à tout moment.
     <br><br>
     Notre plateforme vous permet de stocker tous vos livres en un seul endroit, dans votre bibliothèque personnelle. Vous pouvez accéder à cette bibliothèque à tout moment pour reprendre votre lecture là où vous l'aviez laissée. Et si vous souhaitez contribuer à la croissance du site en ajoutant d'autres livres, nous sommes toujours ouverts à de nouvelles contributions.
     <br><br>

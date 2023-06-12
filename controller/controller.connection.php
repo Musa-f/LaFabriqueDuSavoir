@@ -9,7 +9,7 @@ if(isset($_SESSION['user'])){
         $errors = [];
 
         if(!empty($_POST['name']) AND !empty($_POST['pswd'])){
-
+            //converts special characters into HTML entities
             $name = htmlspecialchars($_POST['name']);
             $pswd = htmlspecialchars($_POST['pswd']);
 
@@ -26,20 +26,14 @@ if(isset($_SESSION['user'])){
                     $error3 = "Vos informations sont incorrectes.";
                     $errors[] = $error3;
                 }
-
             }else{
                 $error2 = "Aucun utilisateur avec ce nom n'a été trouvé.";
                 $errors[] = $error2;
             }
-
-
         }else{
                 $error1 = "Veuillez compléter tous les champs.";
                 $errors[] = $error1;
         }
     }
-
-
-
 }
 

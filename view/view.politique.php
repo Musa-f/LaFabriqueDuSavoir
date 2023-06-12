@@ -19,7 +19,8 @@ Les informations collectées sont utilisées pour vous fournir un accès à votr
 Vos informations sont stockées sur nos serveurs sécurisés. <br> Le compte est automatiquement fermé après 3 ans de non-connexion, ainsi que toutes les données qui y sont associées.
 <br><br>
 <li class="point-title">Modification et suppression des informations</li>
-Vous avez le droit de modifier toutes vos informations à partir de votre profil, en respectant les normes d'encodage (nom d'utilisateur avec au moins 3 caractères, adresse e-mail valide, etc.). Vous avez également le droit de supprimer votre compte à partir de votre profil, ainsi que toutes les informations associées.
+Vous avez le droit de modifier toutes vos informations à partir de votre profil, en respectant les normes d'encodage (nom d'utilisateur avec au moins 3 caractères, adresse e-mail valide, etc.). 
+Si vous désirez supprimer votre compte et toutes les informations qui y sont associées, veuillez contacter l'administrateur du site pour demander la suppression de vos données. Une réponse vous sera fournie dans un délai de 72 heures.
 <br><br>
 <li class="point-title">Nom d'utilisateur et photo de profil inappropriés</li>
 L'utilisateur est tenu de choisir un nom d'utilisateur et une image de profil qui sont appropriés et respectueux envers les autres utilisateurs. En cas de nom d'utilisateur offensant ou inapproprié ainsi que d'une image de profil inappropriée, l'administrateur se réserve le droit de suspendre temporairement le compte jusqu'à ce que l'utilisateur modifie ces informations.

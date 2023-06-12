@@ -30,5 +30,4 @@ if(isset($_SESSION['user'])) {
 }
 
 include "../view/view.readbook.php";
-?>
 
