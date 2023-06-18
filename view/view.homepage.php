@@ -3,7 +3,7 @@
             <input name="title" type="text" placeholder="Le petit prince..." class="initialize style-input">
         </div>
         <div>
-            <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
+            <img src="<?=$path?>/assets/img/l-separator.svg" >
         </div>
         <div>
             <select name="author" id="" class="initialize style-input">

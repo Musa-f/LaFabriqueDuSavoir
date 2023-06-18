@@ -188,7 +188,7 @@ main{
 }
 
 
-/*Par défaut*/
+/*DEFAULT STYLE*/
 
 .title{
     display: flex;
@@ -219,6 +219,7 @@ main{
     height: 20px;
     color: #2c3638;
     border-bottom: 2px solid #2c3638;
+    border-radius: none;
     &:hover, &:focus{
         border-bottom: 2px solid $beige;
     }
