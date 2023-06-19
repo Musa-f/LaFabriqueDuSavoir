@@ -2,14 +2,12 @@
 session_start();
 include 'controller.model_links.php';
 
-$path = "/la_fabrique_du_savoir";
-
 //Scans a directory for all files and directories inside it and returns an array of their names
 $pagesController = scandir("../controller/");
 $pagesView = scandir("../view/");
 
 $pageView = "view.homepage"; 
-
+$path = "/la_fabrique_du_savoir";
 
 //Checks if the GET parameter 'page' is set and corresponds to an existing .php file in the 'view/' directory. If so, the variable $page is set to the corresponding value
 if(isset($_GET['page'])){
@@ -18,7 +16,7 @@ if(isset($_GET['page'])){
     }
 }
 
-//Checks if the current view file has a corresponding controller file. If the controller file exists, it is included in the current page
+//Checks if the current view file has a corresponding controller file. If the controller file exists, is included in the current page
 if(file_exists("../view/$pageView")){
     $pageName = $_GET['page'];
     $pageName = substr($pageName, strlen('view.'));

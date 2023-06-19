@@ -60,11 +60,11 @@ function select_pswd_from_name($bdd, $input){
 
 function select_exist_username($bdd, $input){
     $stmt = $bdd->prepare("SELECT name_user FROM users WHERE name_user = :input");
-    $exec = $stmt->execute(array(
+    $stmt->execute(array(
         'input' => $input
     ));
-    $stmt = $stmt->fetchColumn();
-    return $stmt;
+    $result = $stmt->fetchColumn();
+    return $result;
 }
 
 function select_exist_email($bdd, $input){

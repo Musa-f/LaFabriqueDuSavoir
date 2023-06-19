@@ -7,6 +7,7 @@
     try{
         $bdd = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
     }
-    catch(PDOExeption $e){
+    catch(PDOException $e){
         echo $e->getMessage();
     }
+

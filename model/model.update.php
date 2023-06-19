@@ -123,3 +123,14 @@ function update_content_post($bdd, $id, $content){
         "idPost" => $id
     ));
 }
+
+function update_post_image($bdd, $idPost, $idImg){
+    $stmt = $bdd->prepare(" UPDATE possess_images
+                            SET id_image = :idImg
+                            WHERE id_post = :idPost
+                        ");
+    $stmt->execute(array(
+        "idPost" => $idPost,
+        "idImg" => $idImg
+    ));
+}

@@ -40,23 +40,12 @@
 .article hr:nth-of-type(1){
     width: 60%;
 }
-
 .article hr:nth-of-type(2){
     width: 80%;
 }
 
-.article div{
-    position: absolute;
-    top: 195px;
-}
-
 .article p{
     text-align: center;
-}
-
-.article a{
-    position: absolute;
-    top: 205px;
 }
 
 .article button{
@@ -93,3 +82,25 @@
     background-color: #bd8b55;
     color: #2c3638;
 }
+
+.more{
+    width: 120%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.more hr{
+    position: absolute;
+    top: 50%;
+
+}
+  
+.more .initialize {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  

@@ -24,14 +24,43 @@ if(isset($_POST['submit'])){
 
     //If post exist
     if($id_post > 0){
-        if(!empty($_POST['title'])){
-            update_title_post($bdd, $id_post, $_POST['title']);
+        $title = $post['title_post'];
+        $content = $post['content_post'];
+
+        if(isset($_POST['title']) && $_POST['title'] !== $title){
+            $title = $_POST['title'];
+            update_title_post($bdd, $id_post, $title);
         }
-        if(!empty($_FILES['file'])){
-            
+
+        if(isset($_POST['content']) && $_POST['content'] !== $content){
+            $content = $_POST['content'];
+            update_content_post($bdd, $id_post, $content);
         }
-        if(!empty($_POST['content'])){
-            update_content_post($bdd, $id_post, $_POST['content']);
+
+        // Update image if FILE variable is not empty
+        if(isset($_FILES) && $_FILES['file']['tmp_name'] !== null){
+
+            $file_tmp_name = $_FILES['file']['tmp_name'];
+            $file_name = $_FILES['file']['name'];
+            $file_size = $_FILES['file']['size'];
+
+            $tabExtension = explode('.', $file_name);
+            $extension = strtolower(end($tabExtension));
+            $extensions = ['jpg', 'png', 'jpeg'];
+            $maxSize = 400000;
+
+            if(in_array($extension, $extensions) && $file_size <= $maxSize){
+                $renamed_url_img = 'post_'.($last_id_img + 1).'.'.$extension;
+                move_uploaded_file($file_tmp_name, '../assets/uploads/'.$renamed_url_img);
+
+                $id_image = $renamed_url_img;
+                insert_image($bdd, $id_image, $file_name, $file_size);
+
+                // Update post image ID
+                update_post_image($bdd, $id_post, $id_image);
+            }else{
+                $errors[] = "Une erreur est survenue lors du téléchargement.";
+            }
         }
     }
 

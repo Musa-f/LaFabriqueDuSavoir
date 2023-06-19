@@ -13,8 +13,14 @@
         <h3><?=$post['date_post']?></h3>
         <hr>
         <p class="extract"><?php echo substr(strip_tags($post['content_post']), 0, 400)."..."?></p>
-        <hr>
-        <a href="../controller/controller.pages.php?page=view.post&id=<?=$post['id_post']?>"><button class="initialize">Poursuivre la lecture</button></a>
+        
+        <div class="more">
+            <hr>
+            <a href="../controller/controller.pages.php?page=view.post&id=<?=$post['id_post']?>">
+                <button class="initialize">Poursuivre la lecture</button>
+            </a>
+        </div>
+        
     </div>
     <?php endforeach ?>
 </div>

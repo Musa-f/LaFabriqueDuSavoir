@@ -1,5 +1,4 @@
 <?php 
-
 include '../model/model.bdd.php';
 include '../model/model.select.php';
 include '../model/model.insert.php';
