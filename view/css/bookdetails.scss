@@ -29,9 +29,15 @@ body{
     }
 }
   
-.bloc1 img {
-    max-width: 100%;
-    height: auto;
+.cover-book{
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+
+    img{
+        object-fit: cover;
+        height: 100%;
+    }
 }
 
 .bloc1 div:first-child{
@@ -149,12 +155,6 @@ body{
             padding: 5px 10px;
         }
     }
-}
-
-.cover-book{
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
 }
 
 .note i {

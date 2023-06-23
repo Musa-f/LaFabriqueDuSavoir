@@ -321,3 +321,12 @@ input[type="text"]:focus, input[type="password"]:focus{
     border: none;
     outline: none;
 }
+
+.btn-display-review{
+    border: white 1px solid;
+    background-color: #2c3638;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+    font-style: italic;
+}

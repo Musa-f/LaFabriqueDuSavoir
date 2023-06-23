@@ -80,7 +80,6 @@
     </div>
 </div>
 
-
 <div class="comment-space">
     <div class="bulle-bloc"><div class="bulle"></div></div>
     <?php if($exist_reviews):?>

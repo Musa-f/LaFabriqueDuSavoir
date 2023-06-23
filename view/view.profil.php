@@ -10,26 +10,25 @@
         <div class="grid-input">
             <label for="">Nom d'utilisateur</label>
             <input type="text" name="name" value="<?=$dataUser['name_user']?>" disabled class="initialize disabled-style">
-            <button class="initialize btn-edit" onclick="edition(this)">
+            <button class="initialize btn-edit" onclick="edition(this, <?=$_SESSION['user']['id_user']?>)">
                 <i class="bi bi-pencil-square"></i>
             </button>
         </div>
         <div class="grid-input">
             <label for="">Adresse mail</label>
             <input type="email" name="email" value="<?=$dataUser['email_user']?>" disabled class="initialize disabled-style">
-            <button class="initialize btn-edit" onclick="edition(this)">
+            <button class="initialize btn-edit" onclick="edition(this, <?=$_SESSION['user']['id_user']?>)">
                 <i class="bi bi-pencil-square"></i>
             </button>
         </div>
         <div class="grid-input">
             <label for="">Mot de passe</label>
             <input type="password" value="passwordcode" disabled class="initialize disabled-style">
-            <button class="initialize btn-edit" onclick="edition(this)">
+            <button class="initialize btn-edit" onclick="edition(this, <?=$_SESSION['user']['id_user']?>)">
                 <i class="bi bi-pencil-square"></i>
             </button>
         </div>
         <div class="btn-actions">
-            <button class="initialize style-btn" name="submit" onclick="submit(<?=$_SESSION['user']['id_user']?>)">Valider</button>
             <button class="initialize cancel-btn" name="cancel" onclick="refresh()">Annuler</button>
         </div>
 </div>
@@ -38,5 +37,5 @@
 
 
 <?php
-    $script = "<script src='{$path}/view/js/useredition.js'></script>"
+    $script = "<script src='{$path}/view/js/profil_user.js'></script>"
 ?>

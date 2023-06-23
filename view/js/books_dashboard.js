@@ -46,7 +46,7 @@ if(url.includes("dashboard=books")){
                         let numPages = doc.numPages;
 
                         let formData = new FormData();
-                        formData.append("submit", submitBtn);
+                        formData.append("submitNewBook", submitBtn);
                         formData.append("idUser", idUser);
                         formData.append("numPages", numPages);
                         formData.append("titleBook", titleBook.value);
@@ -110,3 +110,12 @@ if(url.includes("dashboard=books")){
         })
     }
 }
+
+$.ajax({  
+    type: "POST",  
+    url: "", 
+    data: {dataSend : data},
+    success: function(response) {
+        console.log(response);
+    }
+});

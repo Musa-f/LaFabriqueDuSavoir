@@ -15,7 +15,7 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     $genres = select_all_genres($bdd);
     $roles = select_all_roles($bdd);
 
-    if(isset($_POST['submit'])){ 
+    if(isset($_POST['submitNewBook'])){ 
         $idAuthorBook = $_POST['idUser'];
         $titleBook = $_POST['titleBook'];
         $dateBook = $_POST['dateBook'];

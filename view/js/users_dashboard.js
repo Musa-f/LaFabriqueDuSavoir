@@ -20,7 +20,7 @@ function delete_user(e, idUserRole){
             url: "../controller/data-sender.php", 
             data: {deleteUserId : idUserRole},
         })
-        $(e.parentNode.parentNode).hide();
+        location.reload();
     }
 }
 
@@ -31,7 +31,7 @@ function delete_review(e, idReview){
             url: "../controller/data-sender.php", 
             data: {deleteIdReview : idReview},
         });
-        $(e.parentNode.parentNode).hide();
+        location.reload();
     }
 }
 
@@ -42,7 +42,7 @@ function delete_comment(e, idComment){
             url: "../controller/data-sender.php", 
             data: {deleteIdComment : idComment},
         });
-        $(e.parentNode.parentNode).hide();
+        location.reload();
     }
 }
 
@@ -68,19 +68,23 @@ function display_review(e, idReview){
     });
 }
 
-// Déroule le congenu des critiques
+// Déroule le contenu des critiques
 if(url.includes("dashboard=users")){
     let reviews = document.querySelectorAll(".reviews");
 
     reviews.forEach(function(review){
         let text = review.innerText;
+        let space = document.createElement("span");
+        space.innerText = "  ";
 
         function minText(){
             let minText = text.substr(0, 150);
             review.innerText = minText;
-            let buttonShow = document.createElement("span");
+            let buttonShow = document.createElement("button");
+            buttonShow.classList.add("btn-display-review");
             buttonShow.innerText = "...";
             if(text.length>100){
+                review.appendChild(space);
                 review.appendChild(buttonShow);
             }
             buttonShow.addEventListener('click', functionShow);
@@ -89,7 +93,9 @@ if(url.includes("dashboard=users")){
         function functionShow(){
             review.innerText = text;
             let buttonHide = document.createElement("button");
+            buttonHide.classList.add("btn-display-review");
             buttonHide.innerText = "Réduire";
+            review.appendChild(space);
             review.appendChild(buttonHide);
             buttonHide.addEventListener('click', functionHide);
         };
