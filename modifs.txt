@@ -1,9 +1,0 @@
-- Bouton déconnexion en dehors du menu : icône deconnexion en haut à droite
-- Barre de recherche unique (titre, auteur, genre), et filtres avancés pour gérer les auteurs/genres
-- Pagination dans le dashboard et dans les livres
-- 
-
-Les modifications à prendre en compte sur le site:
-- Supprimer useredition.js
-- Publier profil_user.js
-- Modifier la vue profil.php
