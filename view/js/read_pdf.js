@@ -3,6 +3,10 @@ function previousPage(){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    var { pdfjsLib } = globalThis;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js';
+
     let progressBar = document.querySelector('div.progress-bar');
     let pdfDoc = null;
     let pageNum = data.currentPage;

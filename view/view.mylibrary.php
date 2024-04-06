@@ -1,5 +1,5 @@
 <div class="title">
-    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
+    <img src="<?=$_ENV['URL']?>/assets/img/l-separator.svg" alt="">
     <h2>Ma bibliothèque</h2>
 </div>
 
@@ -50,8 +50,8 @@
 
 
 <?php
-    $script = " <script src='{$path}/view/js/books.js'></script>
-                <script src='{$path}/view/js/shelf.js'></script>
-                <script src='{$path}/view/js/modalbook.js'></script>
+    $script = " <script src='" . $_ENV['URL'] . "/view/js/books.js'></script>
+                <script src='" . $_ENV['URL'] . "/view/js/shelf.js'></script>
+                <script src='" . $_ENV['URL'] . "/view/js/modalbook.js'></script>
                 ";
 ?>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?=$book['title_book']?></title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/la_fabrique_du_savoir/view/css/readbook.css">
+        <link rel="stylesheet" href="<?=$_ENV['URL']?>/view/css/readbook.css">
     </head>
 
     <body>
@@ -32,8 +32,8 @@
             let data = <?php echo json_encode($data); ?>;
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-        <script src="../view/js/read_pdf.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js"></script>
+        <script src="../view/js/read_pdf.js" type="module"></script>
     </body>
 </html>

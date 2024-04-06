@@ -1,5 +1,5 @@
 <div class="title">
-    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
+    <img src="<?=$_ENV['URL']?>/assets/img/l-separator.svg" alt="">
     <?php if($id_post == 0):?>
         <h2>Nouveau article</h2>
     <?php else:?>
@@ -30,6 +30,6 @@
 </form>
 
 <?php
-    $script = "<script src='{$path}/view/ckeditor/build/ckeditor.js'></script>
-                <script src='{$path}/view/js/editor.js'></script>";
+    $script = "<script src='" . $_ENV['URL'] . "/view/ckeditor/build/ckeditor.js'></script>
+                <script src='" . $_ENV['URL'] . "/view/js/editor.js'></script>";
 ?>

@@ -1,5 +1,5 @@
 <div class="title">
-    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
+    <img src="<?=$_ENV['URL']?>/assets/img/l-separator.svg" alt="">
     <h2>Profil</h2>
 </div>
 
@@ -37,5 +37,5 @@
 
 
 <?php
-    $script = "<script src='{$path}/view/js/profil_user.js'></script>"
+    $script = "<script src='" . $_ENV['URL'] . "/view/js/profil_user.js'></script>"
 ?>

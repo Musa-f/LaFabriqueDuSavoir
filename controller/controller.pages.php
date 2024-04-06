@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+include 'controller.env.php';
 include 'controller.model_links.php';
 
 //Scans a directory for all files and directories inside it and returns an array of their names
@@ -7,7 +9,6 @@ $pagesController = scandir("../controller/");
 $pagesView = scandir("../view/");
 
 $pageView = "view.homepage"; 
-$path = "/la_fabrique_du_savoir";
 
 //Checks if the GET parameter 'page' is set and corresponds to an existing .php file in the 'view/' directory. If so, the variable $page is set to the corresponding value
 if(isset($_GET['page'])){

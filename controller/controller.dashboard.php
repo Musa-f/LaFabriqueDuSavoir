@@ -2,8 +2,6 @@
 session_start();
 include 'controller.model_links.php';
 
-$path = "/la_fabrique_du_savoir";
-
 if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1){
     include "../view/view.dashboard_header.php";
     $users = select_all_users($bdd);

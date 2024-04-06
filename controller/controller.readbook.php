@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'controller.model_links.php';
+include 'controller.env.php';
 
 $id = $_GET["id"];
 
@@ -8,7 +9,7 @@ $book = select_book_id($bdd, $id);
 $pdf = $book["pdf_book"];
 
 $data = array(
-    'pdfUrl' => "/la_fabrique_du_savoir/assets/pdf/" . $pdf . ".pdf",
+    'pdfUrl' => $_ENV['URL'] . "/assets/pdf/" . $pdf . ".pdf",
     'currentPage' => 1,
     'existBook' => false,
     'idUser' => 0,

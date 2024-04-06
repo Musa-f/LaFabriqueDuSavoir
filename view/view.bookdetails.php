@@ -132,8 +132,8 @@
 </div>
 
 <?php
-    $script =   "<script src='{$path}/view/js/ratings.js'></script>
-                <script src='{$path}/view/js/addbook.js'></script>
+    $script =   "<script src='" . $_ENV['URL'] . "/view/js/ratings.js'></script>
+                <script src='". $_ENV['URL'] . "/view/js/addbook.js'></script>
                 ";
 ?>
 

@@ -1,6 +1,6 @@
 
 <div class="title">
-    <img src="<?=$path?>/assets/img/l-separator.svg" alt="">
+    <img src="<?=$_ENV['URL']?>/assets/img/l-separator.svg" alt="">
     <h2>Politique de confidentialité</h2>
 </div>
 
